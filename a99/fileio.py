@@ -11,7 +11,7 @@ import logging
 __all__ = [
     "rename_to_temp", "is_text_file", "multirow_str_vector", "add_bits_to_path", "crunch_dir",
     "slugify", "write_lf", "int_vector", "float_vector", "get_path",
-    "str_vector", "new_filename", "readline_strip", "create_symlink", "which",
+    "str_vector", "new_filename", "readline_strip", "create_symlink", "which", "load_with_classes"
 ]
 
 
@@ -279,8 +279,47 @@ def get_path(*args, module=a99):
     Returns: path string
 
     >>> get_path()
-    sdsadsa
     """
 
-    p = os.path.abspath(os.path.join(module.__path__[0], *args))
+    p = os.path.abspath(os.path.join(os.path.split(module.__file__)[0], *args))
     return p
+
+
+def load_with_classes(filename, classes):
+    """Attempts to load file by trial-and-error using a given list of classes.
+
+    Arguments:
+      filename -- full path to file
+      classes -- list of DataFile descendant classes
+
+    Returns: DataFile object if loaded successfully, or None if not.
+
+    Note: it will stop at the first successful load.
+
+    Attention: this is not good if there is a bug in any of the file readers,
+    because *all exceptions will be silenced!*
+    """
+
+    ok = False
+    for class_ in classes:
+        obj = class_()
+        try:
+            obj.load(filename)
+            ok = True
+        # # cannot let IOError through because pyfits raises IOError!!
+        # except IOError:
+        #     raise
+        # # also cannot let OSError through because astropy.io.fits raises OSError!!
+        # except OSError:
+        #     raise
+        except Exception as e:  # (ValueError, NotImplementedError):
+            # Note: for debugging, switch the below to True
+            if a99.logging_level == logging.DEBUG:
+                a99.get_python_logger().exception("Error trying with class \"{0!s}\"".format(
+                                              class_.__name__))
+            pass
+        if ok:
+            break
+    if ok:
+        return obj
+    return None

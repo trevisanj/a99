@@ -9,6 +9,7 @@ import collections
 import a99
 from threading import Lock
 import time
+import os
 
 
 __all__ = [
@@ -277,11 +278,14 @@ def get_icon(keyword):
     Transforms a PNG file in a QIcon
 
     Looks for a file named <keyword>.png in the "icons" directory
+
+    If file does not exist, returns None
     """
 
-    filename = a99.get_path("data", "icons", keyword + ".png")
-    ret = QIcon(filename)
-    return ret
+    filename = a99.get_path( "icons", keyword + ".png")
+    if not os.path.isfile(filename):
+        raise FileNotFoundError("File '{}' does not exist".format(filename))
+    return QIcon(filename)
 
 
 # Because several windows of the same class may be created, we'll give them different titles to help avoid confusion

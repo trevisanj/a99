@@ -47,6 +47,7 @@ COLOR_WARNING = "#C98A00" # sortta yellow
 # Default color for label text
 COLOR_DESCR = "#222222"
 
+
 # ## Constants affecting logging
 #    ---------------------------
 #

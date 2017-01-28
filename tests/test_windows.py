@@ -2,6 +2,7 @@ import a99
 import os
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+import pytest
 
 
 def test_NullEditor():
@@ -131,7 +132,19 @@ def test_get_QApplication():
 # TODO test non-existing icons
 def test_get_icon():
     app = a99.get_QApplication()
-    assert isinstance(a99.get_icon("document-open"), QIcon)
+    # assert isinstance(a99.get_icon("document-open"), QIcon)
+    icon = a99.get_icon("document-open")
+    assert icon is not None
+
+    # Not like this, always returns a QIcon assert a99.get_icon("aaaaaaaa") == None
+
+# TODO test non-existing icons
+def test_get_ne_icon():
+    app = a99.get_QApplication()
+    # assert isinstance(a99.get_icon("document-open"), QIcon)
+    with pytest.raises(FileNotFoundError) as e_info:
+        _ = a99.get_icon("nerdology1234")
+
     # Not like this, always returns a QIcon assert a99.get_icon("aaaaaaaa") == None
 
 

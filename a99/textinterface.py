@@ -243,14 +243,6 @@ def _format_exe_info(py_len, exeinfo, format, indlevel):
                     filecolumn = " " * (py_len + 1)
 
                 ret.append("{}{}{}{}".format(ind, filecolumn, " "*sbc, s))
-
-            # if si.flag_error:
-            #     ret.append(piece+si.description)
-            # else:
-            #     ss = textwrap.wrap(si.description, 79 - py_len - 1)
-            #     ret.append(piece+" "+(ss[0] if ss and len(ss) > 0 else "no doc"))
-            #     for i in range(1, len(ss)):
-            #         ret.append((" " * (py_len + 2))+ss[i])
     ret.append("")
     return ret
 

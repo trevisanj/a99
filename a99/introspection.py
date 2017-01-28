@@ -12,8 +12,6 @@ __all__ = ["ExeInfo", "get_exe_info", "collect_doc",
            "get_classes_in_module"]
 
 
-
-
 class ExeInfo(object):
     """Information about an executable file"""
     def __init__(self, filename, description, flag_error=False, flag_gui=False):
@@ -125,3 +123,17 @@ def get_classes_in_module(module, superclass=object):
             # raise
             pass
     return ret
+
+
+def get_class_package(class_):
+    """
+    Returns package that class belongs to
+    """
+    root_pkg_name = class_.__module__.split(".")[0]
+    if root_pkg_name == a99.__name__:
+        return a99
+    if root_pkg_name not in __collaborators:
+        raise RuntimeError("Class '{}' belongs to package '{}', "
+                           "but the latter is not among hypydrive collaborators".
+                           format(class_.__name__, root_pkg_name))
+    return __collaborators[root_pkg_name]
