@@ -19,10 +19,10 @@ scripts = find_scripts(pkgs)
 
 
 setup(
-    name='f311',
+    name='a99',
     packages=find_packages(),
     include_package_data=True,
-    version='0.17.1.21',
+    version='0.17.1.28b',
     license='GNU GPLv3',
     platforms='any',
     description='Collection of Astronomy-related library and applications in Python',
