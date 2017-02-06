@@ -22,7 +22,7 @@ setup(
     name='a99',
     packages=find_packages(),
     include_package_data=True,
-    version='0.17.1.28b',
+    version='0.17.2.6',
     license='GNU GPLv3',
     platforms='any',
     description='Collection of Astronomy-related library and applications in Python',
