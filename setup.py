@@ -22,10 +22,10 @@ setup(
     name='a99',
     packages=find_packages(),
     include_package_data=True,
-    version='0.17.2.6',
+    version='0.17.2.16',
     license='GNU GPLv3',
     platforms='any',
-    description='Collection of Astronomy-related library and applications in Python',
+    description='A multi-purpose API in Python',
     author='Julio Trevisan',
     author_email='juliotrevisan@gmail.com',
     url='https://github.com/trevisanj/f311', # use the URL to the github repo

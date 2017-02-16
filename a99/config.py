@@ -8,6 +8,7 @@ Gear for working with configuration files
 from configobj import ConfigObj
 import a99
 import os
+import re
 
 __all__ = ["AAConfigObj", "get_config_obj"]
 
@@ -45,9 +46,33 @@ class AAConfigObj(ConfigObj):
                      ["section", "subsection", ...] or
                      "[/]section/subsection/..."  (leading slash is tolerated)
             default -- value to return if item is not found
+
+        Argument 'default' is also used to determine the type of the data to return:
+
+            - str and list: returned as retrieved
+            - int and float: eval'ed
+            - bool: parsed
         """
         section, path_ = self._get_section(path_)
-        return section.get(path_[-1], default)
+
+
+        key = path_[-1]
+
+        if key not in section:
+            return default
+
+        xvalue = section[key]
+        type_ = type(default)
+        if type_ in (str, list):
+            return xvalue
+        elif type_ == bool:
+            value = True if xvalue == "True" else False if xvalue == "False" else eval(xvalue)
+        elif type_ in (int, float):
+            value = type_(xvalue)
+        else:
+            raise TypeError("Type not supported: {}".format(type_.__name__))
+        return value
+
 
     def set_item(self, path_, value):
         """Sets item and automatically saves file"""

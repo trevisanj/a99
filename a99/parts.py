@@ -74,10 +74,7 @@ class AttrsPart(_AAObject):
             self.less_attrs = self.attrs
 
     def __str__(self):
-        assert self.attrs is not None, "Forgot to set attrs class variable for class '{}'".\
-            format(self.__class__.__name__)
-
-        if len(self.attrs) == 0:
+        if self.attrs is None or len(self.attrs) == 0:
             return _AAObject.__str__(self)
 
         maxlen = max([len(x) for x in self.attrs])
