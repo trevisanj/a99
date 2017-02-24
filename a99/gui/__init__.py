@@ -45,10 +45,8 @@ if flag_ok:
     from .a_WCollapsiblePanel import *
     from .a_XLogDialog import *
     from .a_XLogMainWindow import *
-    from .a_XFileMainWindow import *
     from .a_XParametersEditor import *
     from .a_WDBRegistry import *
     from .a_WSelectFileOrDir import *
-    from .a_WChooseSpectrum import *
 
 del a99, flag_ok, logging
