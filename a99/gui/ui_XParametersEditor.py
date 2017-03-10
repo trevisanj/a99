@@ -7,50 +7,48 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+import a99
+
 
 try:
-  _fromUtf8 = QtCore.QString.fromUtf8
-except AttributeError:
-  def _fromUtf8(s):
-    return s
-
-try:
-  _encoding = QtGui.QApplication.UnicodeUTF8
+  _encoding = QApplication.UnicodeUTF8
   def _translate(context, text, disambig):
-    return QtGui.QApplication.translate(context, text, disambig, _encoding)
+    return QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
   def _translate(context, text, disambig):
-    return QtGui.QApplication.translate(context, text, disambig)
+    return QApplication.translate(context, text, disambig)
 
 class Ui_XParametersEditor(object):
   def setupUi(self, XParametersEditor):
-    XParametersEditor.setObjectName(_fromUtf8("XParametersEditor"))
-    XParametersEditor.setWindowModality(QtCore.Qt.WindowModal)
+    XParametersEditor.setObjectName("XParametersEditor")
+    XParametersEditor.setWindowModality(Qt.WindowModal)
     XParametersEditor.resize(446, 62)
-    self.horizontalLayout_2 = QtGui.QHBoxLayout(XParametersEditor)
+    self.horizontalLayout_2 = QHBoxLayout(XParametersEditor)
     self.horizontalLayout_2.setSpacing(2)
-    self.a99.set_margin(horizontalLayout_2, 2)
-    self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
-    self.horizontalLayout = QtGui.QHBoxLayout()
+    a99.set_margin(self.horizontalLayout_2, 2)
+    self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+    self.horizontalLayout = QHBoxLayout()
     self.horizontalLayout.setSpacing(2)
-    self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-    self.frame = QtGui.QFrame(XParametersEditor)
-    self.frame.setFrameShape(QtGui.QFrame.StyledPanel)
-    self.frame.setFrameShadow(QtGui.QFrame.Raised)
-    self.frame.setObjectName(_fromUtf8("frame"))
+    self.horizontalLayout.setObjectName("horizontalLayout")
+    self.frame = QFrame(XParametersEditor)
+    self.frame.setFrameShape(QFrame.StyledPanel)
+    self.frame.setFrameShadow(QFrame.Raised)
+    self.frame.setObjectName("frame")
     self.horizontalLayout.addWidget(self.frame)
-    self.buttonBox = QtGui.QDialogButtonBox(XParametersEditor)
-    self.buttonBox.setOrientation(QtCore.Qt.Vertical)
-    self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
-    self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
+    self.buttonBox = QDialogButtonBox(XParametersEditor)
+    self.buttonBox.setOrientation(Qt.Vertical)
+    self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
+    self.buttonBox.setObjectName("buttonBox")
     self.horizontalLayout.addWidget(self.buttonBox)
     self.horizontalLayout_2.addLayout(self.horizontalLayout)
 
     self.retranslateUi(XParametersEditor)
-    QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), XParametersEditor.reject)
-    QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), XParametersEditor.accept)
-    QtCore.QMetaObject.connectSlotsByName(XParametersEditor)
+    self.buttonBox.rejected.connect(XParametersEditor.reject)
+    self.buttonBox.accepted.connect(XParametersEditor.accept)
+    QMetaObject.connectSlotsByName(XParametersEditor)
 
   def retranslateUi(self, XParametersEditor):
     XParametersEditor.setWindowTitle(_translate("XParametersEditor", "Parameters Editor", None))
