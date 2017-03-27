@@ -16,9 +16,9 @@ set_facecolor_white()
 def format_BLB():
     """Sets some formatting options in Matplotlib."""
     rc("figure", facecolor="white")
-    rc('font', family = 'serif', size=14) #, serif = 'cmr10')
-    rc('xtick', labelsize=14)
-    rc('ytick', labelsize=14)
+    rc('font', family = 'serif', size=10) #, serif = 'cmr10')
+    rc('xtick', labelsize=10)
+    rc('ytick', labelsize=10)
     rc('axes', linewidth=1)
     rc('xtick.major', size=4, width=1)
     rc('xtick.minor', size=2, width=1)
