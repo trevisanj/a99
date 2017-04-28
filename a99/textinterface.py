@@ -2,7 +2,7 @@ import textwrap
 
 
 __all__ = ["format_h1", "format_h2", "fmt_error", "print_error", "menu", "format_progress", "markdown_table",
-           "print_skipped", "format_exe_info", "format_box"]
+           "print_skipped", "format_exe_info", "format_box", "yesno"]
 
 
 NIND = 2  # Number of spaces per indentation level
@@ -39,7 +39,7 @@ def format_h1(s, format="text", indents=0):
     Args:
         s: string
         intents: number of leading intenting spaces
-        format: string starting with "text" or "markdown"
+        format: string starting with "text", "markdown", or "rest"
 
     Returns: list
 
@@ -55,6 +55,8 @@ def format_h1(s, format="text", indents=0):
         return format_underline(s, "=", indents)
     elif format.startswith("markdown"):
         return ["# {}".format(s)]
+    elif format.startswith("rest"):
+        return format_underline(s, "=", 0)
 
 
 def format_h2(s, format="text", indents=0):
@@ -80,6 +82,8 @@ def format_h2(s, format="text", indents=0):
         return format_underline(s, "-", indents)
     elif format.startswith("markdown"):
         return ["## {}".format(s)]
+    elif format.startswith("rest"):
+        return format_underline(s, "-", 0)
 
 
 
@@ -91,6 +95,43 @@ def fmt_error(s):
 def print_error(s):
     """Prints string as error message."""
     print((fmt_error(s)))
+
+
+def yesno(question, default=None):
+    """Asks a yes/no question
+
+    Args:
+        question: string **without** the question mark and without the options.
+            Example: 'Create links'
+        default: default option. Accepted values are 'Y', 'YES', 'N', 'NO' or lowercase versions of
+            these valus (this argument is case-insensitive)
+
+    Returns:
+        bool: True if user answered Yes, False otherwise
+    """
+
+    if default is not None:
+        if isinstance(default, bool):
+            pass
+        else:
+            default_ = default.upper()
+            if default_ not in ('Y', 'YES', 'N', 'NO'):
+                raise RuntimeError("Invalid default value: '{}'".format(default))
+            default = default_ in ('Y', 'YES')
+
+    while True:
+        ans = input("{} ({}/{})? ".format(question, "Y" if default == True else "y",
+                                         "N" if default == False else "n")).upper()
+        if ans == "" and default is not None:
+            ret = default
+            break
+        elif ans in ("N", "NO"):
+            ret = False
+            break
+        elif ans in ("Y", "YES"):
+            ret = True
+            break
+    return ret
 
 
 def menu(title, options, cancel_label="Cancel", flag_allow_empty=False, flag_cancel=True, ch='.'):
@@ -225,7 +266,10 @@ def _format_exe_info(py_len, exeinfo, format, indlevel):
     ind = " " * indlevel * NIND if format.startswith("text") else ""
     if format == "markdown-list":
         for si in exeinfo:
-            ret.append("  - `{0!s}` -- {1!s}".format(si.filename, si.description))
+            ret.append("  - `{0!s}`: {1!s}".format(si.filename, si.description))
+    if format == "rest-list":
+        for si in exeinfo:
+            ret.append("* ``{0!s}``: {1!s}".format(si.filename, si.description))
     elif format == "markdown-table":
         mask = "%-{0:d}s | %s".format(py_len+2 )
         ret.append(mask % ("Script name", "Purpose"))
@@ -256,8 +300,9 @@ def format_exe_info(exeinfo, format="text", indlevel=0):
 
       format -- One of the options below:
         "text" -- generates plain text for printing at the console
-        "markdown-list" -- generates MarkDown as a list
-        "markdown-table" -- generates MarkDown as a table
+        "markdown-list" -- generates MarkDown as list
+        "markdown-table" -- generates MarkDown as tables
+        "rest-list" -- generates reStructuredText as lists
 
       indents -- indentation level ("text" format only)
 
