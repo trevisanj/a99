@@ -1,8 +1,8 @@
 import textwrap
-
+import sys
 
 __all__ = ["format_h1", "format_h2", "fmt_error", "print_error", "menu", "format_progress", "markdown_table",
-           "print_skipped", "format_exe_info", "format_box", "yesno"]
+           "print_skipped", "format_exe_info", "format_box", "yesno" "rest_table", "expand_multirow_data"]
 
 
 NIND = 2  # Number of spaces per indentation level
@@ -226,34 +226,9 @@ def format_progress(i, n):
     return '[{0!s}{1!s}] {2:d}/{3:d} - {4:.1f}%'.format(s_plus, s_point, i, n, fraction*100)
 
 
-
-def markdown_table(headers, data):
-    """
-    Creates MarkDown table. Returns list of strings
-
-    Arguments:
-      headers -- sequence of strings: (header0, header1, ...)
-      data -- [(cell00, cell01, ...), (cell10, cell11, ...), ...]
-    """
-
-    maxx = [max([len(x) for x in column]) for column in zip(*data)]
-    maxx = [max(ll) for ll in zip(maxx, [len(x) for x in headers])]
-    mask = " | ".join(["%-{0:d}s".format(n) for n in maxx])
-
-    ret = [mask % headers]
-
-
-
-    ret.append(" | ".join(["-"*n for n in maxx]))
-    for line in data:
-        ret.append(mask % line)
-    return ret
-
-
 def print_skipped(reason):
     """Standardized printing for when a file was skipped."""
     print(("   ... SKIPPED ({0!s}).".format(reason)))
-
 
 
 # #################################################################################################
@@ -333,3 +308,105 @@ def format_exe_info(exeinfo, format="text", indlevel=0):
     return ret, py_len
 
 
+# #################################################################################################
+# # Text table functions
+
+def markdown_table(data, headers):
+    """
+    Creates MarkDown table. Returns list of strings
+
+    Arguments:
+      data -- [(cell00, cell01, ...), (cell10, cell11, ...), ...]
+      headers -- sequence of strings: (header0, header1, ...)
+    """
+
+    maxx = [max([len(x) for x in column]) for column in zip(*data)]
+    maxx = [max(ll) for ll in zip(maxx, [len(x) for x in headers])]
+    mask = " | ".join(["%-{0:d}s".format(n) for n in maxx])
+
+    ret = [mask % headers]
+
+    ret.append(" | ".join(["-"*n for n in maxx]))
+    for line in data:
+        ret.append(mask % line)
+    return ret
+
+
+def expand_multirow_data(data):
+    """
+    Converts multirow cells to a list of lists and informs the number of lines of each row.
+
+    Returns:
+         tuple: new_data, row_heights
+    """
+
+    num_cols = len(data[0]) # number of columns
+
+    # calculates row heights
+    row_heights = []
+    for mlrow in data:
+        row_height = 0
+        for j, cell in enumerate(mlrow):
+            row_height = max(row_height, 1 if not isinstance(cell, (list, tuple)) else len(cell))
+        row_heights.append(row_height)
+    num_lines = sum(row_heights) # line != row (rows are multiline)
+
+    # rebuilds table data
+    new_data = [[""]*num_cols for i in range(num_lines)]
+    i0 = 0
+    for row_height, mlrow in zip(row_heights, data):
+        for j, cell in enumerate(mlrow):
+            if not isinstance(cell, (list, tuple)):
+                cell = [cell]
+
+            for incr, x in enumerate(cell):
+                new_data[i0+incr][j] = x
+
+        i0 += row_height
+
+    return new_data, row_heights
+
+
+
+def rest_table(data, headers):
+    """
+    Creates reStructuredText table (grid format), allowing for multiline cells
+
+    Arguments:
+      data -- [((cell000, cell001, ...), (cell010, cell011, ...), ...), ...]
+      headers -- sequence of strings: (header0, header1, ...)
+
+    **Note** Tolerant to non-strings
+
+    **Note** Cells may or may not be multiline
+
+    >>> rest_table([["Eric", "Idle"], ["Graham", "Chapman"], ["Terry", "Gilliam"]], ["Name", "Surname"])
+    """
+
+    num_cols = len(headers)
+    new_data, row_heights = expand_multirow_data(data)
+    new_data = [[str(x) for x in row] for row in new_data]
+    col_widths = [max([len(x) for x in col]) for col in zip(*new_data)]
+    col_widths = [max(cw, len(s)) for cw, s in zip(col_widths, headers)]
+
+    if any([x == 0 for x in col_widths]):
+        raise RuntimeError("Column widths ({}) has at least one zero".format(col_widths))
+
+    num_lines = sum(row_heights) # line != row (rows are multiline)
+
+    # horizontal lines
+    hl0 = "+"+"+".join(["-"*(n+2) for n in col_widths])+"+"
+    hl1 = "+"+"+".join(["="*(n+2) for n in col_widths])+"+"
+
+    frmtd = ["{0:{1}}".format(x, width) for x, width in zip(headers, col_widths)]
+    ret = [hl0, "| "+" | ".join(frmtd)+" |", hl1]
+
+    i0 = 0
+    for row_height in row_heights:
+        for incr in range(row_height):
+            frmtd = ["{0:{1}}".format(x, width) for x, width in zip(new_data[i0+incr], col_widths)]
+            ret.append("| "+" | ".join(frmtd)+" |")
+        i0 += row_height
+
+    ret.append(hl0)
+    return ret

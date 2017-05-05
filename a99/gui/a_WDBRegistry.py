@@ -16,20 +16,17 @@ class WDBRegistry(WBase):
       - table widget
       - tool bar
       - set of actions
-      - id_changed signal
-      - id+row properties
+      - signals: id_changed, changed
+      - 'id' and 'row' properties
     """
-
 
     # Emitted whenever the value of the 'id' property changes
     id_changed = pyqtSignal()
-
 
     @property
     def id(self):
         """Molecule id or None"""
         return self._get_id()
-
 
     @property
     def row(self):
@@ -42,6 +39,7 @@ class WDBRegistry(WBase):
 
     @property
     def f(self):
+        """Object representing the file being edited (possibly a DataFile object)"""
         return self._f
 
     @f.setter
@@ -118,34 +116,37 @@ class WDBRegistry(WBase):
     # # "Abstract" methods (must be overriden)
 
     def _do_on_insert(self):
+        """Override this and return True if data was changed"""
         raise NotImplementedError()
 
 
     def _do_on_edit(self):
+        """Override this and return True if data was changed"""
         raise NotImplementedError()
 
 
     def _do_on_delete(self):
+        """Override this and return True if data was changed"""
         raise NotImplementedError()
 
 
     # # Slots
 
     def on_insert(self):
-        self._do_on_insert()
-
+        if self._do_on_insert():
+            self.changed.emit()
 
     def on_edit(self):
         if self.row is None:
             return
-        self._do_on_edit()
-
+        if self._do_on_edit():
+            self.changed.emit()
 
     def on_delete(self):
         if not self.row:
             return
-        self._do_on_delete()
-
+        if self._do_on_delete():
+            self.changed.emit()
 
     def on_tableWidget_customContextMenuRequested(self, position):
         menu = QMenu()
@@ -177,14 +178,11 @@ class WDBRegistry(WBase):
                 t.setCurrentCell(i, 0)
                 break
 
-
-
     def _wanna_emit_id_changed(self):
         """Filters intentions to emit the id_changed signal (only does if id really changed)"""
         if self._last_id != self._get_id():
             self._last_id = self._get_id()
             self.id_changed.emit()
-
 
     def _get_id(self):
         """Getter because using the id property from within was not working"""

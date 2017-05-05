@@ -5,9 +5,9 @@ from .a_XLogMainWindow import XLogMainWindow
 
 
 class WBase(QWidget):
-    """Widget with 'edited' signal, keep_ref(), logging tools"""
+    """Widget with 'changed' signal, keep_ref(), logging tools"""
     # Emitted whenever any value changes
-    edited = pyqtSignal()
+    changed = pyqtSignal()
 
     def __init__(self, parent):
         assert isinstance(parent, (XLogMainWindow, XLogDialog))

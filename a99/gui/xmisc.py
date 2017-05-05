@@ -19,7 +19,8 @@ __all__ = [
     "get_matplotlib_layout", "nerdify", "place_center", "get_window_title", "style_widget_changed",
     "get_QApplication", "get_icon", "show_edit_form", "snap_left", "snap_right", "enc_name",
     "place_left_top", "reset_table_widget", "table_info_to_parameters", "format_title0",
-    "format_title1", "format_title2", "style_widget_valid", "set_margin"
+    "format_title1", "format_title2", "style_widget_valid", "set_margin",
+    "get_frame"
 ]
 
 _qrefs = []
@@ -518,7 +519,15 @@ def format_title2(s):
     """Formats string as third-level title (to use as QLabel text)"""
     return "<h5>{}</h5>".format(s)
 
-
 def set_margin(obj, margin):
     """...because Qt5 no longer has xxxx.setMargin() method"""
     obj.setContentsMargins(margin, margin, margin, margin)
+
+def get_frame():
+    """Returns a QFrame formatted in a particular way"""
+    ret = QFrame()
+    ret.setLineWidth(1)
+    ret.setMidLineWidth(0)
+    ret.setFrameShadow(QFrame.Sunken)
+    ret.setFrameShape(QFrame.Box)
+    return ret

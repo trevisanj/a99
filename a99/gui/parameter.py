@@ -82,8 +82,8 @@ class Parameter(object):
 
     def FromSpec(self, spec):
         """
-        Arguments:
-          spec -- (name, {...})
+        Args:
+          spec: (name, {...}), or Parameter object
 
         Dict keys:
           "caption" -- (optional) text for label in editor. Defaults to the
@@ -99,15 +99,26 @@ class Parameter(object):
           "value" -- (optional) defaults to 1 if numeric, False if bool,
                "" if str
 
-        Note that if type is not specified,
         """
-        self.name, d = spec
-        self.caption = d.get("caption", self.name)
-        self.toolTip = d.get("toolTip", "")
-        t = self.type = d.get("type", type(d["value"]) if "value" in d else int)
-        if not t in (int, float, bool, str, list):
-            raise TypeError("Invalid type: '{0!s}'".format(t.__name__))
-        self.value = d.get("value", 1 if t in (int, float) else False if t == bool else "")
+        if isinstance(spec, Parameter):
+            self.name = spec.name
+            self.caption = spec.caption if spec.caption is not None else spec.name
+            self.toolTip = spec.toolTip if spec.toolTip is not None else ""
+            self.type = spec.type if spec.type is not None else type(spec.value) if spec.value is not None else int
+            self.value = spec.value
+        else:
+            self.name, d = spec
+            self.caption = d.get("caption", self.name)
+            self.toolTip = d.get("toolTip", "")
+            t = self.type = d.get("type", type(d["value"]) if "value" in d else int)
+            if not t in (int, float, bool, str, list):
+                raise TypeError("Invalid type: '{0!s}'".format(t.__name__))
+            self.value = d.get("value")
+
+        if self.value is None:
+            self.value = 0 if self.type == int else \
+                0. if self.type == float else \
+                False if self.type == bool else ""
 
     def RenderWidget(self):
         """Returns a QWidget subclass instance. Exact class depends on self.type"""
