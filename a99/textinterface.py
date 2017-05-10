@@ -2,7 +2,7 @@ import textwrap
 import sys
 
 __all__ = ["format_h1", "format_h2", "fmt_error", "print_error", "menu", "format_progress", "markdown_table",
-           "print_skipped", "format_exe_info", "format_box", "yesno" "rest_table", "expand_multirow_data"]
+           "print_skipped", "format_exe_info", "format_box", "yesno", "rest_table", "expand_multirow_data"]
 
 
 NIND = 2  # Number of spaces per indentation level

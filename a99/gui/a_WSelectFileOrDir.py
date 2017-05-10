@@ -100,8 +100,8 @@ class WSelectDir(_WSelectFileOrDir):
         path_ = self.edit.text().strip()
         if len(path_) == 0:
             path_ = self.dialog_path
-        res = QFileDialog.getExistingDirectory(self, self.dialog_title, path_)[0]
-        if res:
+        res = QFileDialog.getExistingDirectory(self, self.dialog_title, path_)
+        if len(res) > 0:
             self.edit.setText(res)
             self.dialog_path = res
 
