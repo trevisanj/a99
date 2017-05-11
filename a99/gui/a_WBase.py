@@ -28,6 +28,8 @@ class WBase(QWidget):
         self._refs.append(obj)
         return obj
 
+    def clear_log(self):
+        self.parent_form.clear_log()
 
     def add_log_error(self, x, flag_also_show=False):
         """Delegates to parent form"""
