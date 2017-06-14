@@ -1,2 +1,3 @@
 
 - Write proper installation tutorial
+- Sphinx doc
