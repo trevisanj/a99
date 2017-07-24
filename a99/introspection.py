@@ -24,19 +24,25 @@ class ExeInfo(object):
         self.flag_gui = flag_gui
 
 
-def get_exe_info(dir_):
+def get_exe_info(dir_, flag_protected=False):
     """
-    Returns a list of ExeInfo objects
+    Returns a list of ExeInfo objects, which represent Python scripts within dir_
+
+    Args:
+        dir_: string, path to directory
+        flag_protected: whether or not to include files starting with a '_'
+
+    Returns:
+        list of ExeInfo objects
 
     The ExeInfo objects represent the ".py" files in directory dir_,
-    except those starting with a "_"
     """
 
     ret = []
     # gets all scripts in script directory
     ff = glob.glob(os.path.join(dir_, "*.py"))
     # discards scripts whose file name starts with a "_"
-    ff = [f for f in ff if not os.path.basename(f).startswith("_")]
+    ff = [f for f in ff if flag_protected or not os.path.basename(f).startswith("_")]
     ff.sort()
 
     for f in ff:

@@ -5,10 +5,10 @@ from PyQt5.QtWidgets import *
 import pytest
 
 
-def test_NullEditor():
-    app = a99.get_QApplication()
-    obj = a99.NullEditor()
-
+# def test_NullEditor():
+#     app = a99.get_QApplication()
+#     obj = a99.NullEditor()
+#
 
 def test_Parameter():
     app = a99.get_QApplication()
@@ -40,11 +40,6 @@ def test_WBase():
     obj = a99.WBase(a99.XLogDialog())
 
 
-def test_WChooseSpectrum():
-    app = a99.get_QApplication()
-    obj = a99.WChooseSpectrum(a99.XLogDialog())
-
-
 def test_WCollapsiblePanel():
     app = a99.get_QApplication()
     obj = a99.WCollapsiblePanel(a99.XLogDialog())
@@ -68,11 +63,6 @@ def test_WSelectDir():
 def test_WSelectFile():
     app = a99.get_QApplication()
     obj = a99.WSelectFile(a99.XLogMainWindow())
-
-
-def test_XFileMainWindow():
-    app = a99.get_QApplication()
-    obj = a99.XFileMainWindow()
 
 
 def test_XLogDialog():
