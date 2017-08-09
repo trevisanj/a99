@@ -3,8 +3,10 @@
 
 from functools import wraps
 from collections import OrderedDict
+from collections import defaultdict
 
-__all__ = ["AttrsPart", "froze_it"]
+
+__all__ = ["AttrsPart", "froze_it", "keydefaultdict"]
 
 
 
@@ -118,4 +120,23 @@ class AttrsPart(_AAObject):
             ret[attrname] = self.__getattribute__(attrname)
         return ret
 
+
+class keydefaultdict(defaultdict):
+    """
+    Subclass of defaultdict to pass the missing key to the default factory
+
+    Usage:
+
+        d = keydefaultdict(C)
+        d[x] # returns C(x)
+
+    Source: solution by Rochen Ritzel at https://stackoverflow.com/questions/2912231/is-there-a-clever-way-to-pass-the-key-to-defaultdicts-default-factory
+    """
+
+    def __missing__(self, key):
+        if self.default_factory is None:
+            raise KeyError( key )
+        else:
+            ret = self[key] = self.default_factory(key)
+            return ret
 

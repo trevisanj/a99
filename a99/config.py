@@ -2,7 +2,6 @@
 Gear for working with configuration files
 
   - subclass of `configobj.ConfigObj`
-  -
 """
 
 from configobj import ConfigObj
