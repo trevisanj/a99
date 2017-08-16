@@ -22,15 +22,14 @@ setup(
     name='a99',
     packages=find_packages(),
     include_package_data=True,
-    version='0.17.8.9.0',
+    version='0.17.8.15.0',
     license='GNU GPLv3',
     platforms='any',
     description='A multi-purpose API in Python',
     author='Julio Trevisan',
     author_email='juliotrevisan@gmail.com',
-    url='https://github.com/trevisanj/f311', # use the URL to the github repo
-    keywords= ['astronomy', "fits", "spectroscopy", "spectral synthesis", "photometry",
-               "honl-london", "nist", "hitran", "multiplicity"],
+    url='https://github.com/trevisanj/a99',
+    keywords= ['astronomy', 'pyqt', 'pyqt5', 'debugging', 'introspection', 'file', 'search', 'conversion', 'datetime', 'config', 'litedb', 'matplotlib', 'text'],
     install_requires=[],
     scripts=scripts
 )
