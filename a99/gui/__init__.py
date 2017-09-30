@@ -48,5 +48,6 @@ if flag_ok:
     from .a_XParametersEditor import *
     from .a_WDBRegistry import *
     from .a_WSelectFileOrDir import *
+    from .a_WEditor import *
 
 del a99, flag_ok, logging

@@ -3,11 +3,15 @@ from PyQt5.QtWidgets import QWidget
 from .a_XLogDialog import XLogDialog
 from .a_XLogMainWindow import XLogMainWindow
 
+__all__ = ["WBase"]
+
 
 class WBase(QWidget):
     """Widget with 'changed' signal, keep_ref(), logging tools"""
-    # Emitted whenever any value changes
+
+    # Should be emitted whenever any value changes
     changed = pyqtSignal()
+
 
     def __init__(self, parent):
         assert isinstance(parent, (XLogMainWindow, XLogDialog))
@@ -39,5 +43,12 @@ class WBase(QWidget):
         """Delegates to parent form"""
         self.parent_form.add_log(x, flag_also_show)
 
+    def status(self, msg):
+        """Probably shows message in status bar"""
+        self.parent_form.status(msg)
+
     def update_gui_label_fn(self):
         pass
+
+
+

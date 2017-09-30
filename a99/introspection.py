@@ -4,12 +4,38 @@
 import os
 import glob
 import imp
+import importlib
 import inspect
 import a99
 
 
-__all__ = ["ExeInfo", "get_exe_info", "collect_doc",
+__all__ = ["import_module", "ExeInfo", "get_exe_info", "collect_doc",
            "get_classes_in_module"]
+
+
+def import_module(filename):
+    """
+    Returns module object
+
+    Source: https://www.blog.pythonlibrary.org/2016/05/27/python-201-an-intro-to-importlib/
+    """
+    module_name = "xyz"
+
+    module_spec = importlib.util.spec_from_file_location(module_name, filename)
+
+    if module_spec is None:
+        raise RuntimeError("Python cannot import file '{}'".format(filename))
+
+    module = importlib.util.module_from_spec(module_spec)
+    module_spec.loader.exec_module(module)
+    # print(dir(module))
+    #
+    # msg = 'The {module_name} module has the following methods:' \
+    #       ' {methods}'
+    # print(msg.format(module_name=module_name,
+    #                  methods=dir(module)))
+
+    return module
 
 
 class ExeInfo(object):
@@ -143,3 +169,4 @@ def get_class_package(class_):
                            "but the latter is not among hypydrive collaborators".
                            format(class_.__name__, root_pkg_name))
     return __collaborators[root_pkg_name]
+

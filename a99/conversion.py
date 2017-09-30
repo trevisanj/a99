@@ -3,16 +3,21 @@
 
 __all__ = [
 "str2bool", "bool2str", "chunk_string", "ordinal_suffix", "seconds2str", "make_fits_keys_dict",
-"valid_fits_key", "eval_fieldnames", "expr_to_fieldname", "module_to_dict",     ]
+"valid_fits_key", "eval_fieldnames", "expr_to_fieldname", "module_to_dict", "unicode_to_greek",
+"greek_to_unicode", "make_code_readable", "int_to_superscript"]
 
 
 import numpy as np
 import re
 
 
+# TODO maybe a str2bool_ex() and its counterpart
 
 def str2bool(s):
-    """Understands "T"/"F" only (case-sensitive). To be used for file parsing."""
+    """Understands "T"/"F" only (case-sensitive). To be used for file parsing.
+
+    **Note** This routine is limited on purpose for speed.
+    """
     if s == "T":
         return True
     elif s == "F":
@@ -21,9 +26,18 @@ def str2bool(s):
 
 
 def bool2str(x):
-    """Converts bool variable to either "T" or "F"."""
+    """Converts bool variable to either "T" or "F".
+
+    **Note** This routine is limited on purpose for speed.
+    """
     assert isinstance(x, bool)
     return "T" if x else "F"
+
+
+def make_code_readable(s):
+    """Adds newlines at strategic places"""
+
+    return s.replace(", ", ",\n ").replace("{", "{\n ").replace("}", "\n}")
 
 
 def chunk_string(string, length):
@@ -149,4 +163,113 @@ def module_to_dict(module):
     lot = [(key, module.__getattribute__(key)) for key in module.__all__]
     ret = dict(lot)
     return ret
+
+
+
+# **        ****                ******        ****                ******        ****
+#   **    **    ******    ******      **    **    ******    ******      **    **    ******    ******
+#     ****            ****              ****            ****              ****            ****
+#
+# Greek alphabet-related routines
+
+# Source:
+#     "A Python dictionary mapping the Unicode codes of the greek alphabet to their names"
+#     https://gist.github.com/beniwohli/765262
+#
+_UNICODE_GREEK = (
+('\u0391', 'Alpha'),
+('\u0392', 'Beta'),
+('\u0393', 'Gamma'),
+('\u0394', 'Delta'),
+('\u0395', 'Epsilon'),
+('\u0396', 'Zeta'),
+('\u0397', 'Eta'),
+('\u0398', 'Theta'),
+('\u0399', 'Iota'),
+('\u039A', 'Kappa'),
+('\u039B', 'Lamda'),
+('\u039C', 'Mu'),
+('\u039D', 'Nu'),
+('\u039E', 'Xi'),
+('\u039F', 'Omicron'),
+('\u03A0', 'Pi'),
+('\u03A1', 'Rho'),
+('\u03A3', 'Sigma'),
+('\u03A4', 'Tau'),
+('\u03A5', 'Upsilon'),
+('\u03A6', 'Phi'),
+('\u03A7', 'Chi'),
+('\u03A8', 'Psi'),
+('\u03A9', 'Omega'),
+('\u03B1', 'alpha'),
+('\u03B2', 'beta'),
+('\u03B3', 'gamma'),
+('\u03B4', 'delta'),
+('\u03B5', 'epsilon'),
+('\u03B6', 'zeta'),
+('\u03B7', 'eta'),
+('\u03B8', 'theta'),
+('\u03B9', 'iota'),
+('\u03BA', 'kappa'),
+('\u03BB', 'lamda'),
+('\u03BC', 'mu'),
+('\u03BD', 'nu'),
+('\u03BE', 'xi'),
+('\u03BF', 'omicron'),
+('\u03C0', 'pi'),
+('\u03C1', 'rho'),
+('\u03C3', 'sigma'),
+('\u03C4', 'tau'),
+('\u03C5', 'upsilon'),
+('\u03C6', 'phi'),
+('\u03C7', 'chi'),
+('\u03C8', 'psi'),
+('\u03C9', 'omega'),
+)
+
+_UNICODE_TO_GREEK = dict(_UNICODE_GREEK)
+_GREEK_TO_UNICODE = dict([(x[1], x[0]) for x in _UNICODE_GREEK])
+
+def unicode_to_greek(s):
+    """Converts unicode single code, e.g., '\u03A3' to Greek letter name, e.g. 'Sigma'"""
+    return _UNICODE_TO_GREEK[s]
+
+def greek_to_unicode(s):
+    """Converts Greek letter name, e.g., 'Sigma', to unicode character, e.g. '\u03A3' """
+    return _GREEK_TO_UNICODE[s]
+
+
+
+# superscript numbers
+_INT_TO_SUPERSCRIPT = {
+ 0: "\u2070",
+ 1: "\u2071",
+ 2: "\u00b2",
+ 3: "\u00b3",
+ 4: "\u2074",
+ 5: "\u2075",
+ 6: "\u2076",
+ 7: "\u2077",
+ 8: "\u2078",
+ 9: "\u2079",
+}
+
+def int_to_superscript(i):
+    """int_to_superscript(i) --> str. i may be a sequence"""
+    try:
+        for ii in i:
+            pass
+    except TypeError:
+        return _INT_TO_SUPERSCRIPT[i]
+    else:
+        return "".join((_INT_TO_SUPERSCRIPT[ii] for ii in i))
+
+
+
+
+
+
+
+
+
 

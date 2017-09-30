@@ -115,6 +115,12 @@ class WDBRegistry(WBase):
 
     # # "Abstract" methods (must be overriden)
 
+    def _move_to_first(self):
+        """Makes top left cell the current cell, if table is not empty"""
+        t = self.tableWidget
+        if t.rowCount() > 0:
+            t.setCurrentCell(0, 0)
+
     def _do_on_insert(self):
         """Override this and return True if data was changed"""
         raise NotImplementedError()

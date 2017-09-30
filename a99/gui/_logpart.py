@@ -33,16 +33,24 @@ class _LogPart(object):
             a99.show_error(x_)
 
     def add_log(self, x, flag_also_show=False):
-        """Sets text of labelDescr."""
+        """Logs to 4 different outputs: conditionally to 3, and certainly to get_python_logger()"""
+
         if hasattr(self, "label_last_log"):
             self.label_last_log.setText(x)
+
         if hasattr(self, "textEdit_log"):
             te = self.textEdit_log
             te.append("{0!s} -- {1!s}".format(a99.now_str(), x))
-        else:
-            a99.get_python_logger().info(x)
+
+        a99.get_python_logger().info(x)
+
         if flag_also_show:
             a99.show_error(x)
+
+    def status(self, x):
+        """Sets text of label_last_log"""
+        if hasattr(self, "label_last_log"):
+            self.label_last_log.setText(x)
 
     def clear_log(self):
         """Clears text of label_last_log"""
