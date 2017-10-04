@@ -1,12 +1,18 @@
-from PyQt5.QtCore import pyqtSignal
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import *
 from .a_XLogDialog import XLogDialog
 from .a_XLogMainWindow import XLogMainWindow
 from .a_WBase import *
+from . import xmisc
+from .. import loggingaux
 import os
 
+# Margin for main layout
+EDITOR_LAYMN_MAIN = 9
+# Spacing for main layout
+EDITOR_LAYSP_MAIN = 9
 
-__all__ = ["WEditor"]
+__all__ = ["WEditor", "EDITOR_LAYMN_MAIN", "EDITOR_LAYSP_MAIN"]
 
 
 class WEditor(WBase):
@@ -29,13 +35,54 @@ class WEditor(WBase):
 
         # Datafile instance
         self._f = None
+        # whether file can be saved or not. Handling this is almost completely left to descenadnt
+        self._flag_valid = False
 
-        self._flag_valid = True
+        self.setEnabled(False)
+
+        # # Central layout
+        l = self.layout_editor = QVBoxLayout()
+        xmisc.set_margin(l, EDITOR_LAYMN_MAIN)
+        l.setSpacing(EDITOR_LAYSP_MAIN)
+        self.setLayout(l)
+
+
+        ll = self.layout_label_fn = QHBoxLayout()
+        l.addLayout(ll)
+        xmisc.set_margin(ll, 0)
+        ll.setSpacing(3)
+
+        la = self.label_caption_fn = QLabel("<b>File: </b>")
+        la.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed))
+        ll.addWidget(la)
+
+        la = self.label_fn = QLabel()  # Label that shows the filename
+        la.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed))
+        ll.addWidget(la)
+
+        ll.addSpacerItem(QSpacerItem(0, 0, QSizePolicy.Expanding, QSizePolicy.Minimum))
 
     def load(self, fobj):
-        self._do_load(fobj)
-        self.update_gui_label_fn()
-        self.loaded.emit()
+        flag_ok = False
+        try:
+            self._do_load(fobj)
+
+            # We trust subclass on this
+            self._flag_valid = True
+
+            self.update_gui_label_fn()
+            self.setEnabled(True)
+            flag_ok = True
+        except Exception as E:
+            loggingaux.get_python_logger().exception("Loading obj of class '{}'".format(fobj.__class__.__name__))
+            xmisc.show_error(loggingaux.str_exc(E))
+            self._flag_valid = False
+            self._f = None
+
+            # **Note** there is one issue: if fails here, it may leave the GUI partially updated
+
+        if flag_ok:
+            self.loaded.emit()
 
     def update_gui_label_fn(self):
         if hasattr(self, "label_fn"):

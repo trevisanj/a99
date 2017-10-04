@@ -232,10 +232,20 @@ _GREEK_TO_UNICODE = dict([(x[1], x[0]) for x in _UNICODE_GREEK])
 
 def unicode_to_greek(s):
     """Converts unicode single code, e.g., '\u03A3' to Greek letter name, e.g. 'Sigma'"""
+
+    # "?" is the "zero-element"
+    if s == "?":
+        return s
+
     return _UNICODE_TO_GREEK[s]
 
 def greek_to_unicode(s):
     """Converts Greek letter name, e.g., 'Sigma', to unicode character, e.g. '\u03A3' """
+
+    # "?" is the "zero-element"
+    if s == "?":
+        return s
+
     return _GREEK_TO_UNICODE[s]
 
 
@@ -255,14 +265,9 @@ _INT_TO_SUPERSCRIPT = {
 }
 
 def int_to_superscript(i):
-    """int_to_superscript(i) --> str. i may be a sequence"""
-    try:
-        for ii in i:
-            pass
-    except TypeError:
-        return _INT_TO_SUPERSCRIPT[i]
-    else:
-        return "".join((_INT_TO_SUPERSCRIPT[ii] for ii in i))
+    """int_to_superscript(i) --> str"""
+
+    return "".join((_INT_TO_SUPERSCRIPT[int(ch)] for ch in str(i)))
 
 
 

@@ -13,13 +13,26 @@ class _WSelectFileOrDir(WBase):
     def value(self):
         return self._get_value()
 
-    # Emitted whenever the valu property changes **to a valid value**
-    valueChanged = pyqtSignal()
+    @value.setter
+    def value(self, value):
+        self._set_value(value)
+
+    @property
+    def flag_valid(self):
+        return self._flag_valid
+
+    @flag_valid.setter
+    def flag_valid(self, value):
+        self._flag_valid = value
+        self._update_gui()
 
     def __init__(self, *args, dialog_title="", dialog_path=".", dialog_wild="*"):
         a99.WBase.__init__(self, *args)
 
         self._last_value = None
+        self._last_exists = None
+        # This affects the edit background (red when _flag_valid is false
+        self._flag_valid = True
 
         self._type = None
         self.dialog_title = dialog_title
@@ -35,7 +48,7 @@ class _WSelectFileOrDir(WBase):
         # lw.addWidget(t)
 
         e = self.edit = QLineEdit()
-        e.textChanged.connect(self.edit_changed)
+        e.textEdited.connect(self._edit_changed)
         lw.addWidget(e)
         # e.setReadOnly(True)
 
@@ -45,29 +58,39 @@ class _WSelectFileOrDir(WBase):
         b.setFixedWidth(30)
 
         # Forces paint red if invalid
-        self.edit_changed()
+        self._edit_changed()
 
     def on_button_clicked(self, _):
         self._on_button_clicked()
 
-    def edit_changed(self):
-        flag_valid = self.validate()
-        a99.style_widget_valid(self.edit, not flag_valid)
-        if flag_valid:
+    def _edit_changed(self):
+        exists = os.path.isfile(self._get_value())
+        if not exists and self._last_exists:
+            self._last_exists = False
+            self.changed.emit()
+        elif exists:
+            self._last_exists = True
             self._wanna_emit()
 
-    def validate(self):
-        """Returns True/False whether value is valid, i.e., existing file or directory"""
-        return self._validate()
+    def _update_gui(self):
+        a99.style_widget_valid(self.edit, self._flag_valid)
 
     def _wanna_emit(self):
         value_now = self._get_value()
-        if value_now != self._last_value:
+        # Maybe it is overzealous to only notify if the last valid filename is not the current one
+        if True or value_now != self._last_value:
             self._last_value = value_now
-            self.valueChanged.emit()
+            self.changed.emit()
 
     def _get_value(self):
         return self.edit.text().strip()
+
+    def _set_value(self, value):
+        if value is None:
+            value = ""
+        self.edit.setText(value)
+        self._last_value = value
+        self._last_exists = os.path.isfile(value)
 
 
 class WSelectFile(_WSelectFileOrDir):
@@ -85,9 +108,6 @@ class WSelectFile(_WSelectFileOrDir):
         if res:
             self.edit.setText(res)
             self.dialog_path = res
-
-    def _validate(self):
-        return os.path.isfile(self.value)
 
 
 class WSelectDir(_WSelectFileOrDir):

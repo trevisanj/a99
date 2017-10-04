@@ -49,5 +49,6 @@ if flag_ok:
     from .a_WDBRegistry import *
     from .a_WSelectFileOrDir import *
     from .a_WEditor import *
+    from .a_WConfigEditor import *
 
 del a99, flag_ok, logging

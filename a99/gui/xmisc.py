@@ -77,7 +77,7 @@ def style_widget_valid(spinbox, flag_valid):
 
     Reference: http://www.colorhexa.com/ff6961
     """
-    spinbox.setStyleSheet("QWidget {background-color: #FF6961}" if flag_valid else "")
+    spinbox.setStyleSheet("QWidget {background-color: #FF6961}" if not flag_valid else "")
 
 
 def check_return_space(event, callable_):
@@ -271,7 +271,6 @@ def get_matplotlib_layout(widget, flag_toolbar=True):
     a99.set_margin(layout, 0)
 
     return fig, canvas, layout
-
 
 
 def get_icon(keyword):
@@ -515,13 +514,16 @@ def format_title1(s):
     """Formats string as second-level title (to use as QLabel text)"""
     return "<h4>{}</h4>".format(s)
 
+
 def format_title2(s):
     """Formats string as third-level title (to use as QLabel text)"""
     return "<h5>{}</h5>".format(s)
 
+
 def set_margin(obj, margin):
     """...because Qt5 no longer has xxxx.setMargin() method"""
     obj.setContentsMargins(margin, margin, margin, margin)
+
 
 def get_frame():
     """Returns a QFrame formatted in a particular way"""
