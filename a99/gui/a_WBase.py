@@ -35,9 +35,9 @@ class WBase(QWidget):
     def clear_log(self):
         self.parent_form.clear_log()
 
-    def add_log_error(self, x, flag_also_show=False):
+    def add_log_error(self, x, flag_also_show=False, E=None):
         """Delegates to parent form"""
-        self.parent_form.add_log_error(x, flag_also_show)
+        self.parent_form.add_log_error(x, flag_also_show, E)
 
     def add_log(self, x, flag_also_show=False):
         """Delegates to parent form"""
