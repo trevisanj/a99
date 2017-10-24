@@ -2,7 +2,7 @@ import textwrap
 import sys
 
 __all__ = ["format_h1", "format_h2", "fmt_error", "print_error", "menu", "format_progress", "markdown_table",
-           "print_skipped", "format_exe_info", "format_box", "yesno", "rest_table", "expand_multirow_data"]
+           "format_exe_info", "format_box", "yesno", "rest_table", "expand_multirow_data"]
 
 
 NIND = 2  # Number of spaces per indentation level
@@ -224,11 +224,6 @@ def format_progress(i, n):
     s_plus = '+'*num_plus
     s_point = '.'*(LEN_BAR-num_plus)
     return '[{0!s}{1!s}] {2:d}/{3:d} - {4:.1f}%'.format(s_plus, s_point, i, n, fraction*100)
-
-
-def print_skipped(reason):
-    """Standardized printing for when a file was skipped."""
-    print(("   ... SKIPPED ({0!s}).".format(reason)))
 
 
 # #################################################################################################

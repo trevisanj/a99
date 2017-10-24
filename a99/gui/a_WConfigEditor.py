@@ -96,8 +96,8 @@ class WConfigEditor(WEditor):
 
         """Updates fobj from GUI. Opposite of _update_gui()"""
 
-        # print("PPPPPPPPPPPPPPPPPPPRINTANDO O STACK")
-        # traceback.print_stack()
+        print("PPPPPPPPPPPPPPPPPPPRINTANDO O STACK")
+        traceback.print_stack()
 
         emsg, flag_error = "", False
         fieldname = None
