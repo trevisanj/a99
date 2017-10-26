@@ -36,6 +36,9 @@ class CEMapItem(object):
     There to way to get-set values. The order of precedence is as follows:
 
         (getter, setter) > (guiobj, propertyname)
+
+    **Notes** on building an editor:
+        - properties must block signals (implement self._after_update_gui() if necessary)
     """
 
     def __init__(self, fieldname, guiobj, propertyname=None, getter=None, setter=None):
@@ -65,11 +68,35 @@ class WConfigEditor(WEditor):
     def __init__(self, *args, **kwargs):
         WEditor.__init__(self, *args, **kwargs)
         
-        # To prevent recursive GUI updating by triggered signals
-        self._flag_updating_gui = False
-
         # [(fieldname, read-write property object), ...]
         self._map = []
+        
+    ################################################################################################
+    # Inheritable events
+    
+    def _before_update_gui(self):
+        """Inherit this to tamper with self.f before it is "loaded" into the GUI"""
+        
+    def _before_update_fobj(self):
+        """Inherit this method to perform validation before GUI state is "saved" into self.f"""
+
+    def _after_update_fobj(self):
+        """Inherit this to "tidy up" self.f after is is updated"""
+
+    def _after_update_gui(self):
+        """
+        Inherit this carry out further GUI or internal state update sensible to self.fobj
+
+        After self.f is "loaded" into the GUI by self.__do_update_gui(), there may be extra work
+        left, such as extra calculations that take more than one config option into account.
+        """
+
+    ################################################################################################
+    # Internal workings
+
+    def _set_flag(self, w, value):
+        """See a99.set_checkbox_value()"""
+        xmisc.set_checkbox_value(w, value)
 
     def _do_load(self, fobj):
         self._f = fobj
@@ -79,33 +106,34 @@ class WConfigEditor(WEditor):
 
     def _update_gui(self):
         "Updates GUI from fobj. Opposite of _update_fobj()"
-        if self._flag_updating_gui:
-            return
 
-        self._flag_updating_gui = True
+        self._before_update_gui()
+        self.__do_update_gui()
+        self._after_update_gui()
 
-        try:
-            for item in self._map:
-                value = self._f.obj[item.fieldname]
-                item.set_value(value)
-
-        finally:
-            self._flag_updating_gui = False
+    def __do_update_gui(self):
+        for item in self._map:
+            value = self._f.obj[item.fieldname]
+            item.set_value(value)
 
     def _update_fobj(self):
+        """Updates fobj from GUI. Opposite of _update_gui()."""
 
-        """Updates fobj from GUI. Opposite of _update_gui()"""
-
-        print("PPPPPPPPPPPPPPPPPPPRINTANDO O STACK")
-        traceback.print_stack()
+        # print("PPPPPPPPPPPPPPPPPPPRINTANDO O STACK")
+        # traceback.print_stack()
 
         emsg, flag_error = "", False
         fieldname = None
         try:
+            
+            self._before_update_fobj()
+
             for item in self._map:
                 fieldname = item.fieldname
                 value = item.get_value()
                 self._f.obj[fieldname] = value
+
+            self._after_update_fobj()
 
         except Exception as E:
             flag_error = True
@@ -118,4 +146,3 @@ class WConfigEditor(WEditor):
         self._flag_valid = not flag_error
         if not flag_error:
             self.status("")
-

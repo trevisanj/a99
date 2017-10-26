@@ -20,7 +20,7 @@ __all__ = [
     "get_QApplication", "get_icon", "show_edit_form", "snap_left", "snap_right", "enc_name",
     "place_left_top", "reset_table_widget", "table_info_to_parameters", "format_title0",
     "format_title1", "format_title2", "style_widget_valid", "set_margin",
-    "get_frame"
+    "get_frame", "set_checkbox_value"
 ]
 
 _qrefs = []
@@ -533,3 +533,18 @@ def get_frame():
     ret.setFrameShadow(QFrame.Sunken)
     ret.setFrameShape(QFrame.Box)
     return ret
+
+def set_checkbox_value(w, value):
+    """
+    Sets a checkbox's "checked" property + signal blocking + value tolerance
+
+    Args:
+        w: QCheckBox instance
+        value: something that can be converted to a bool
+    """
+    save = w.blockSignals(True)
+    try:
+        w.setChecked(bool(value))
+    finally:
+        w.blockSignals(save)
+

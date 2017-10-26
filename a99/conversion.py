@@ -37,7 +37,41 @@ def bool2str(x):
 def make_code_readable(s):
     """Adds newlines at strategic places"""
 
-    return s.replace(", ", ",\n ").replace("{", "{\n ").replace("}", "\n}")
+    MAP = {",": ",\n", "{": "{\n ", "}": "\n}"}
+
+    ll = []
+
+    state = "open"
+    flag_single = False
+    flag_double = False
+    flag_backslash = False
+    for ch in s:
+        if flag_backslash:
+            flag_backslash = False
+            continue
+
+        if ch == "\\":
+            flag_backslash = True
+            continue
+
+        if flag_single:
+            if ch == "'":
+                flag_single = False
+        elif not flag_double and ch == "'":
+            flag_single = True
+
+        if flag_double:
+            if ch == '"':
+                flag_double = False
+        elif not flag_single and ch == '"':
+            flag_double = True
+
+        if flag_single or flag_double:
+            ll.append(ch)
+        else:
+            ll.append(MAP.get(ch, ch))
+
+    return "".join(ll)
 
 
 def chunk_string(string, length):
