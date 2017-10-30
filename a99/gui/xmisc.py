@@ -134,16 +134,28 @@ def reset_table_widget(t, rowCount, colCount):
     t.setColumnCount(colCount)
 
 
-def show_edit_form(obj, attrs, title):
+def show_edit_form(obj, attrs=None, title=""):
     """Shows parameters editor modal form.
 
     Arguments:
-      obj -- object to extract attribute values from
+       obj -- object to extract attribute values from, or a dict-like
       attrs -- list of attribute names
     """
+
+    if attrs is None:
+        if hasattr(obj, "keys"):
+            attrs = list(obj.keys())
+        else:
+            raise RuntimeError("attrs is None and cannot determine it from obj")
+
     specs = []
     for name in attrs:
-        value = obj.__getattribute__(name)
+        # Tries as attribute, then as key
+        try:
+            value = obj.__getattribute__(name)
+        except AttributeError:
+            value = obj[name]
+
         if value is None:
             value = ""  # None becomes str
         specs.append((name, {"value": value}))

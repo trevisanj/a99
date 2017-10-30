@@ -78,7 +78,7 @@ class WConfigEditor(WEditor):
         """Inherit this to tamper with self.f before it is "loaded" into the GUI"""
         
     def _before_update_fobj(self):
-        """Inherit this method to perform validation before GUI state is "saved" into self.f"""
+        """Inherit this method to validate/modify self._f before it is saved"""
 
     def _after_update_fobj(self):
         """Inherit this to "tidy up" self.f after is is updated"""

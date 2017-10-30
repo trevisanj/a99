@@ -10,7 +10,7 @@ import a99
 
 
 __all__ = ["import_module", "ExeInfo", "get_exe_info", "collect_doc",
-           "get_classes_in_module"]
+           "get_classes_in_module", "get_obj_doc0", "get_subpackages_names"]
 
 
 def import_module(filename):
@@ -79,6 +79,7 @@ def get_exe_info(dir_, flag_protected=False):
             # Checks if it is a graphical application
 
             with open(f, "r") as h:
+                # TODO **profile this**, maybe time-consuming
                 flag_gui = "QApplication" in h.read()
 
             script_ = imp.load_source('script_', f)  # module object
@@ -157,16 +158,39 @@ def get_classes_in_module(module, superclass=object):
     return ret
 
 
-def get_class_package(class_):
-    """
-    Returns package that class belongs to
-    """
-    root_pkg_name = class_.__module__.split(".")[0]
-    if root_pkg_name == a99.__name__:
-        return a99
-    if root_pkg_name not in __collaborators:
-        raise RuntimeError("Class '{}' belongs to package '{}', "
-                           "but the latter is not among hypydrive collaborators".
-                           format(class_.__name__, root_pkg_name))
-    return __collaborators[root_pkg_name]
+# todo cleanup def get_class_package(class_):
+#     """
+#     Returns package that class belongs to
+#     """
+#     root_pkg_name = class_.__module__.split(".")[0]
+#     if root_pkg_name == a99.__name__:
+#         return a99
+#     if root_pkg_name not in __collaborators:
+#         raise RuntimeError("Class '{}' belongs to package '{}', "
+#                            "but the latter is not among hypydrive collaborators".
+#                            format(class_.__name__, root_pkg_name))
+#     return __collaborators[root_pkg_name]
+#
 
+def get_obj_doc0(obj, alt="(no doc)"):
+    """Returns first line of cls.__doc__, or alternative text"""
+    ret = obj.__doc__.strip().split("\n")[0] if obj.__doc__ is not None else alt
+    return ret
+
+
+def get_subpackages_names(dir_):
+    """Figures out the names of the subpackages of a package
+
+    Args:
+        dir_: (str) path to package directory
+
+    Source: http://stackoverflow.com/questions/832004/python-finding-all-packages-inside-a-package
+    """
+
+    def is_package(d):
+        d = os.path.join(dir_, d)
+        return os.path.isdir(d) and glob.glob(os.path.join(d, '__init__.py*'))
+
+    ret = list(filter(is_package, os.listdir(dir_)))
+    ret.sort()
+    return ret

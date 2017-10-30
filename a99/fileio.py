@@ -17,20 +17,16 @@ __all__ = [
 
 # # Filename or pathname-related string manipulations
 
-def slugify(value, flagLower=True):
-  """
-  Converts to lowercase, removes non-alpha characters,
-  and converts spaces to hyphens.
+def slugify(string):
+    """
+    Removes non-alpha characters, and converts spaces to hyphens. Useful for making file names.
 
-  Useful for making file names.
 
-  Source: http://stackoverflow.com/questions/5574042/string-slugification-in-python
-  """
-  value = re.sub('[^\w\s.]', '', value).strip()
-  if flagLower:
-    value = value.lower()
-  value = re.sub('[-\s]+', '-', value)
-  return value
+    Source: http://stackoverflow.com/questions/5574042/string-slugification-in-python
+    """
+    string = re.sub('[^\w .-]', '', string)
+    string = string.replace(" ", "-")
+    return string
 
 
 def crunch_dir(name, n=50):

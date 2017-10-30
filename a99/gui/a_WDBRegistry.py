@@ -93,6 +93,8 @@ class WDBRegistry(WBase):
 
         l.addWidget(a)
 
+        # Adds actions to toolbar
+
         tb = QToolBar()
         tb.setOrientation(Qt.Vertical)
         l.addWidget(tb)

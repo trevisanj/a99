@@ -12,12 +12,24 @@ class Occurrence(object):
               "error": a99.COLOR_ERROR,
               "cannot open": a99.COLOR_ERROR}
 
-    def __init__(self, filename, type_, line, message):
+    def __init__(self, filename, type_, line, message, ):
         # "undefined"/"warning"/"error"/"cannot open"
         self.type = type_
+        # list of strings
         self.message = message
         self.filename = filename
         self.line = line
+
+    def get_plain_text(self):
+        """Returns a list"""
+        _msg = self.message if self.message is not None else [""]
+        msg = _msg if isinstance(_msg, list) else [_msg]
+        line = "" if not self.line else ", line {}".format(self.line)
+        ret = ["{} found in file '{}'{}::".format(self.type.capitalize(), self.filename, line),
+               "  <<"]+ \
+              ["    "+x for x in msg]+ \
+              ["  >>"]
+        return ret
 
     def get_html(self):
         message = self.message if isinstance(self.message, str) \
@@ -28,12 +40,17 @@ class Occurrence(object):
 
 
 class ErrorCollector(object):
-    """Walks through directory in search for files 'python.log' and 'fortran.log'.
+    """
+    Walks through directory in search for files 'python.log' and 'fortran.log'.
+
+    Args:
+        flag_warnings: collect warnings (besides errors)?
 
     Opens these files and extracts error information from them (if found).
     """
 
-    def __init__(self):
+    def __init__(self, flag_warnings=True):
+        self.flag_warnings = flag_warnings
         # List of Occurrence
         self.occurrences = []
 
@@ -66,7 +83,7 @@ class ErrorCollector(object):
                                      [linetext_last, linetext])
                                     self.occurrences.append(occ)
 
-                                if "WARNING" in linetext:
+                                if self.flag_warnings and "WARNING" in linetext:
                                     occ = Occurrence(path__, "warning", line, linetext)
                                     self.occurrences.append(occ)
 
@@ -75,6 +92,13 @@ class ErrorCollector(object):
                     except IOError as E:
                         occ = Occurrence(path__, "cannot open", 0, str(E))
                         self.occurrences.append(occ)
+
+    def get_plain_text(self):
+        """Returns a list of strings"""
+        ret = []
+        for occ in self.occurrences:
+            ret.extend(occ.get_plain_text())
+        return ret
 
     def get_html(self):
         oo = [occ.get_html() for occ in self.occurrences]
