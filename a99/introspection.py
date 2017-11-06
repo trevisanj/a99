@@ -7,6 +7,7 @@ import imp
 import importlib
 import inspect
 import a99
+import time
 
 
 __all__ = ["import_module", "ExeInfo", "get_exe_info", "collect_doc",
@@ -79,12 +80,15 @@ def get_exe_info(dir_, flag_protected=False):
             # Checks if it is a graphical application
 
             with open(f, "r") as h:
-                # TODO **profile this**, maybe time-consuming
                 flag_gui = "QApplication" in h.read()
 
-            script_ = imp.load_source('script_', f)  # module object
-            descr = script_.__doc__.strip()
-            descr = descr.split("\n")[0]  # first line of docstring
+            try:
+                script_ = imp.load_source('script_', f)  # module object
+            except SystemExit:
+                descr = "? (called sys.exit())"
+            else:
+                descr = script_.__doc__.strip()
+                descr = descr.split("\n")[0]  # first line of docstring
         except Exception as e:
             flag_error = True
             descr = "*{0!s}*: {1!s}".format(e.__class__.__name__, str(e))
