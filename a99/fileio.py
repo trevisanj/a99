@@ -141,23 +141,42 @@ def multirow_str_vector(f, n, r=0):
 
 # # Probe, write, rename etc.
 
-def new_filename(prefix, extension=""):
+def new_filename(prefix, extension=None, flag_minimal=True):
     """returns a file name that does not exist yet, e.g. prefix.0001.extension
 
-    If extension starts with an '.', this character will be ignored
+    Args:
+        prefix:
+        extension: examples: "dat", ".dat" (leading dot will be detected, does not repeat dot in name)
+        flag_minimal:
+
+          - True: will try to be as "clean" as possible
+          - False: will generate filenames in a simple, same-length pattern
+
+    Example: ``new_filename("molecules-", "dat", True)``
+
+    In the example above, the first attempt will be "molecules.dat", then "molecules-0000.dat".
+    If flag_minimal were True, it would skip the first attempt.
     """
+
+    if extension is None:
+        extension = ""
 
     if len(extension) > 0 and extension[0] == '.':
         extension = extension[1:]
 
+    # extension-sensitive format for filename
+    fmt = '{0!s}-{1:04d}.{2!s}' if extension else '{0!s}-{1:04d}'
+
+    # Removes tailing dash because it would look funny (but will be re-added in format string)
+    prefix_ = prefix[:-1] if prefix.endswith("-") else prefix
+
     i = -1
     while True:
-        if i > -1:
-            ret = '{0!s}.{1:04d}.{2!s}'.format(prefix, i, extension) \
-                if extension else '{0!s}.{1:04d}'.format(prefix, i)
+        if i == -1:
+            if flag_minimal:
+                ret = "{}.{}".format(prefix_, extension) if extension else prefix_
         else:
-            ret = "{}.{}".format(prefix, extension) \
-                if extension else prefix
+            ret = fmt.format(prefix_, i, extension)
 
         if not os.path.exists(ret):
             break
