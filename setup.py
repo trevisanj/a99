@@ -22,7 +22,7 @@ setup(
     name='a99',
     packages=find_packages(),
     include_package_data=True,
-    version='0.17.10.26.0',
+    version='0.17.12.08.0',  # typed wrong month, will have to keep incrementing last digit until past December 08th
     license='GNU GPLv3',
     platforms='any',
     description='A multi-purpose API in Python',
