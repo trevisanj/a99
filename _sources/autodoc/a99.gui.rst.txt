@@ -1,0 +1,134 @@
+a99.gui package
+===============
+
+Submodules
+----------
+
+a99.gui.a_WBase module
+----------------------
+
+.. automodule:: a99.gui.a_WBase
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_WCollapsiblePanel module
+----------------------------------
+
+.. automodule:: a99.gui.a_WCollapsiblePanel
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_WConfigEditor module
+------------------------------
+
+.. automodule:: a99.gui.a_WConfigEditor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_WDBRegistry module
+----------------------------
+
+.. automodule:: a99.gui.a_WDBRegistry
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_WEditor module
+------------------------
+
+.. automodule:: a99.gui.a_WEditor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_WParametersEditor module
+----------------------------------
+
+.. automodule:: a99.gui.a_WParametersEditor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_WSelectFileOrDir module
+---------------------------------
+
+.. automodule:: a99.gui.a_WSelectFileOrDir
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_XLogDialog module
+---------------------------
+
+.. automodule:: a99.gui.a_XLogDialog
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_XLogMainWindow module
+-------------------------------
+
+.. automodule:: a99.gui.a_XLogMainWindow
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.a_XParametersEditor module
+----------------------------------
+
+.. automodule:: a99.gui.a_XParametersEditor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.errorcollector module
+-----------------------------
+
+.. automodule:: a99.gui.errorcollector
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.parameter module
+------------------------
+
+.. automodule:: a99.gui.parameter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.syntax module
+---------------------
+
+.. automodule:: a99.gui.syntax
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.ui_XParametersEditor module
+-----------------------------------
+
+.. automodule:: a99.gui.ui_XParametersEditor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.gui.xmisc module
+--------------------
+
+.. automodule:: a99.gui.xmisc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: a99.gui
+    :members:
+    :undoc-members:
+    :show-inheritance:

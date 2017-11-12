@@ -1,0 +1,1145 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>a99.gui package &mdash; A99 latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="A99 latest documentation" href="../index.html"/>
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> A99
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">A99 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">f311</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">A99</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>a99.gui package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/autodoc/a99.gui.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="a99-gui-package">
+<h1>a99.gui package<a class="headerlink" href="#a99-gui-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-a99.gui.a_WBase">
+<span id="a99-gui-a-wbase-module"></span><h2>a99.gui.a_WBase module<a class="headerlink" href="#module-a99.gui.a_WBase" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.a_WBase.WBase">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WBase.</code><code class="descname">WBase</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WBase.WBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QWidget</span></code></p>
+<p>Widget with ‘changed’ signal, keep_ref(), logging tools</p>
+<dl class="method">
+<dt id="a99.gui.a_WBase.WBase.add_log">
+<code class="descname">add_log</code><span class="sig-paren">(</span><em>x</em>, <em>flag_also_show=False</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WBase.WBase.add_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delegates to parent form</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WBase.WBase.add_log_error">
+<code class="descname">add_log_error</code><span class="sig-paren">(</span><em>x</em>, <em>flag_also_show=False</em>, <em>E=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WBase.WBase.add_log_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delegates to parent form</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.a_WBase.WBase.changed">
+<code class="descname">changed</code><a class="headerlink" href="#a99.gui.a_WBase.WBase.changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WBase.WBase.clear_log">
+<code class="descname">clear_log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WBase.WBase.clear_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WBase.WBase.keep_ref">
+<code class="descname">keep_ref</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WBase.WBase.keep_ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds obj to internal list to keep a reference to it.</p>
+<p>WHen using PyQt, it happens that the Python object gets garbage-collected even
+when a C++ Qt object still exists, causing a mess</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WBase.WBase.status">
+<code class="descname">status</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WBase.WBase.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probably shows message in status bar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WBase.WBase.update_gui_label_fn">
+<code class="descname">update_gui_label_fn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WBase.WBase.update_gui_label_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_WCollapsiblePanel">
+<span id="a99-gui-a-wcollapsiblepanel-module"></span><h2>a99.gui.a_WCollapsiblePanel module<a class="headerlink" href="#module-a99.gui.a_WCollapsiblePanel" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.a_WCollapsiblePanel.WCollapsiblePanel">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WCollapsiblePanel.</code><code class="descname">WCollapsiblePanel</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WCollapsiblePanel.WCollapsiblePanel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QWidget</span></code></p>
+<p>Collapsible panel</p>
+<dl class="attribute">
+<dt>
+<code class="descname">self.widget -- populate this</code></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">self.collapsed_label -- label to become visible when collapsed. Set its text to show some</code></dt>
+<dd><p>text when collapsed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WCollapsiblePanel.WCollapsiblePanel.collapse_expand_clicked">
+<code class="descname">collapse_expand_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WCollapsiblePanel.WCollapsiblePanel.collapse_expand_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_WConfigEditor">
+<span id="a99-gui-a-wconfigeditor-module"></span><h2>a99.gui.a_WConfigEditor module<a class="headerlink" href="#module-a99.gui.a_WConfigEditor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.a_WConfigEditor.WConfigEditor">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WConfigEditor.</code><code class="descname">WConfigEditor</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WConfigEditor.WConfigEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#a99.gui.a_WEditor.WEditor" title="a99.gui.a_WEditor.WEditor"><code class="xref py py-class docutils literal"><span class="pre">a99.gui.a_WEditor.WEditor</span></code></a></p>
+<p>Base class for FileConfig editors</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="a99.gui.a_WConfigEditor.CEMapItem">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WConfigEditor.</code><code class="descname">CEMapItem</code><span class="sig-paren">(</span><em>fieldname</em>, <em>guiobj</em>, <em>propertyname=None</em>, <em>getter=None</em>, <em>setter=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WConfigEditor.CEMapItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Config Editor map item</p>
+<p>There to way to get-set values. The order of precedence is as follows:</p>
+<blockquote>
+<div>(getter, setter) &gt; (guiobj, propertyname)</div></blockquote>
+<dl class="docutils">
+<dt><strong>Notes</strong> on building an editor:</dt>
+<dd><ul class="first last simple">
+<li>properties must block signals (implement self._after_update_gui() if necessary)</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="a99.gui.a_WConfigEditor.CEMapItem.get_value">
+<code class="descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WConfigEditor.CEMapItem.get_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WConfigEditor.CEMapItem.set_value">
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WConfigEditor.CEMapItem.set_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_WDBRegistry">
+<span id="a99-gui-a-wdbregistry-module"></span><h2>a99.gui.a_WDBRegistry module<a class="headerlink" href="#module-a99.gui.a_WDBRegistry" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WDBRegistry.</code><code class="descname">WDBRegistry</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#a99.gui.a_WBase.WBase" title="a99.gui.a_WBase.WBase"><code class="xref py py-class docutils literal"><span class="pre">a99.gui.a_WBase.WBase</span></code></a></p>
+<p>Base class for registry widgets</p>
+<dl class="docutils">
+<dt>Comes with</dt>
+<dd><ul class="first last simple">
+<li>table widget</li>
+<li>tool bar</li>
+<li>set of actions</li>
+<li>signals: id_changed, changed</li>
+<li>‘id’ and ‘row’ properties</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.eventFilter">
+<code class="descname">eventFilter</code><span class="sig-paren">(</span><em>source</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.eventFilter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.f">
+<code class="descname">f</code><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object representing the file being edited (possibly a DataFile object)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.id">
+<code class="descname">id</code><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molecule id or None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.id_changed">
+<code class="descname">id_changed</code><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.id_changed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.on_delete">
+<code class="descname">on_delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.on_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.on_edit">
+<code class="descname">on_edit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.on_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.on_insert">
+<code class="descname">on_insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.on_insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.on_tableWidget_currentCellChanged">
+<code class="descname">on_tableWidget_currentCellChanged</code><span class="sig-paren">(</span><em>currentRow</em>, <em>currentColumn</em>, <em>previousRow</em>, <em>previousColumn</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.on_tableWidget_currentCellChanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.on_tableWidget_customContextMenuRequested">
+<code class="descname">on_tableWidget_customContextMenuRequested</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.on_tableWidget_customContextMenuRequested" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.on_tableWidget_doubleClicked">
+<code class="descname">on_tableWidget_doubleClicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.on_tableWidget_doubleClicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.a_WDBRegistry.WDBRegistry.row">
+<code class="descname">row</code><a class="headerlink" href="#a99.gui.a_WDBRegistry.WDBRegistry.row" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Returns current data row</em> – MyDBRow object, or None</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_WEditor">
+<span id="a99-gui-a-weditor-module"></span><h2>a99.gui.a_WEditor module<a class="headerlink" href="#module-a99.gui.a_WEditor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.a_WEditor.WEditor">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WEditor.</code><code class="descname">WEditor</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WEditor.WEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#a99.gui.a_WBase.WBase" title="a99.gui.a_WBase.WBase"><code class="xref py py-class docutils literal"><span class="pre">a99.gui.a_WBase.WBase</span></code></a></p>
+<p>Base class for editor widgets</p>
+<dl class="attribute">
+<dt id="a99.gui.a_WEditor.WEditor.f">
+<code class="descname">f</code><a class="headerlink" href="#a99.gui.a_WEditor.WEditor.f" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.a_WEditor.WEditor.flag_valid">
+<code class="descname">flag_valid</code><a class="headerlink" href="#a99.gui.a_WEditor.WEditor.flag_valid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WEditor.WEditor.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>fobj</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WEditor.WEditor.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.a_WEditor.WEditor.loaded">
+<code class="descname">loaded</code><a class="headerlink" href="#a99.gui.a_WEditor.WEditor.loaded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WEditor.WEditor.update_gui_label_fn">
+<code class="descname">update_gui_label_fn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WEditor.WEditor.update_gui_label_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_WParametersEditor">
+<span id="a99-gui-a-wparameterseditor-module"></span><h2>a99.gui.a_WParametersEditor module<a class="headerlink" href="#module-a99.gui.a_WParametersEditor" title="Permalink to this headline">¶</a></h2>
+<p>Parameters Editor Widget. Mostly used embedded in XParametersEditor</p>
+<dl class="class">
+<dt id="a99.gui.a_WParametersEditor.WParametersEditor">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WParametersEditor.</code><code class="descname">WParametersEditor</code><span class="sig-paren">(</span><em>parent=None</em>, <em>specs=None</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WParametersEditor.WParametersEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QWidget</span></code></p>
+<p>Parameters editor widget.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent=None</strong> – </li>
+<li><strong>-- list as</strong><strong> [</strong> (<em>specs=None</em>) – to Parameters constructor. Parameter.FromSpec()
+for full documentation.</li>
+<li><strong>-- Parameters instance. If passed</strong><strong>, </strong><strong>ignores specs and sets</strong> (<em>parameters=None</em>) – </li>
+<li><strong>parameters attribute directly</strong> (<em>internal</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="a99.gui.a_WParametersEditor.WParametersEditor.ParametersChanged">
+<code class="descname">ParametersChanged</code><a class="headerlink" href="#a99.gui.a_WParametersEditor.WParametersEditor.ParametersChanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WParametersEditor.WParametersEditor.get_kwargs">
+<code class="descname">get_kwargs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WParametersEditor.WParametersEditor.get_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WParametersEditor.WParametersEditor.setFocus">
+<code class="descname">setFocus</code><span class="sig-paren">(</span><em>reason=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WParametersEditor.WParametersEditor.setFocus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets focus to first field. Note: reason is ignored.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WParametersEditor.WParametersEditor.set_error_text">
+<code class="descname">set_error_text</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WParametersEditor.WParametersEditor.set_error_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_WParametersEditor.WParametersEditor.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WParametersEditor.WParametersEditor.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_WSelectFileOrDir">
+<span id="a99-gui-a-wselectfileordir-module"></span><h2>a99.gui.a_WSelectFileOrDir module<a class="headerlink" href="#module-a99.gui.a_WSelectFileOrDir" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.a_WSelectFileOrDir.WSelectDir">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WSelectFileOrDir.</code><code class="descname">WSelectDir</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WSelectFileOrDir.WSelectDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">a99.gui.a_WSelectFileOrDir._WSelectFileOrDir</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="a99.gui.a_WSelectFileOrDir.WSelectFile">
+<em class="property">class </em><code class="descclassname">a99.gui.a_WSelectFileOrDir.</code><code class="descname">WSelectFile</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_WSelectFileOrDir.WSelectFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">a99.gui.a_WSelectFileOrDir._WSelectFileOrDir</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_XLogDialog">
+<span id="a99-gui-a-xlogdialog-module"></span><h2>a99.gui.a_XLogDialog module<a class="headerlink" href="#module-a99.gui.a_XLogDialog" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.a_XLogDialog.XLogDialog">
+<em class="property">class </em><code class="descclassname">a99.gui.a_XLogDialog.</code><code class="descname">XLogDialog</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_XLogDialog.XLogDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QDialog</span></code>, <code class="xref py py-class docutils literal"><span class="pre">a99.gui._logpart._LogPart</span></code></p>
+<p>QDialog subclass that carries a logging facility</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_XLogMainWindow">
+<span id="a99-gui-a-xlogmainwindow-module"></span><h2>a99.gui.a_XLogMainWindow module<a class="headerlink" href="#module-a99.gui.a_XLogMainWindow" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.a_XLogMainWindow.XLogMainWindow">
+<em class="property">class </em><code class="descclassname">a99.gui.a_XLogMainWindow.</code><code class="descname">XLogMainWindow</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_XLogMainWindow.XLogMainWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QMainWindow</span></code>, <code class="xref py py-class docutils literal"><span class="pre">a99.gui._logpart._LogPart</span></code></p>
+<p>QMainWindow subclass that carries a logging facility</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.a_XParametersEditor">
+<span id="a99-gui-a-xparameterseditor-module"></span><h2>a99.gui.a_XParametersEditor module<a class="headerlink" href="#module-a99.gui.a_XParametersEditor" title="Permalink to this headline">¶</a></h2>
+<p>Parameters Editor dialog.</p>
+<dl class="class">
+<dt id="a99.gui.a_XParametersEditor.XParametersEditor">
+<em class="property">class </em><code class="descclassname">a99.gui.a_XParametersEditor.</code><code class="descname">XParametersEditor</code><span class="sig-paren">(</span><em>parent=None</em>, <em>specs=None</em>, <em>title=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_XParametersEditor.XParametersEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QDialog</span></code>, <a class="reference internal" href="#a99.gui.ui_XParametersEditor.Ui_XParametersEditor" title="a99.gui.ui_XParametersEditor.Ui_XParametersEditor"><code class="xref py py-class docutils literal"><span class="pre">a99.gui.ui_XParametersEditor.Ui_XParametersEditor</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>-- nevermind</strong> (<em>parent=None</em>) – </li>
+<li><strong>-- Required! list as</strong><strong> [</strong> (<em>specs=None</em>) – to Parameters constructor. Parameter.FromSpec()
+for full documentation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="a99.gui.a_XParametersEditor.XParametersEditor.accept">
+<code class="descname">accept</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_XParametersEditor.XParametersEditor.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_XParametersEditor.XParametersEditor.get_kwargs">
+<code class="descname">get_kwargs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_XParametersEditor.XParametersEditor.get_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.a_XParametersEditor.XParametersEditor.show">
+<code class="descname">show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.a_XParametersEditor.XParametersEditor.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.errorcollector">
+<span id="a99-gui-errorcollector-module"></span><h2>a99.gui.errorcollector module<a class="headerlink" href="#module-a99.gui.errorcollector" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.errorcollector.ErrorCollector">
+<em class="property">class </em><code class="descclassname">a99.gui.errorcollector.</code><code class="descname">ErrorCollector</code><span class="sig-paren">(</span><em>flag_warnings=True</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.errorcollector.ErrorCollector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Walks through directory in search for files ‘python.log’ and ‘fortran.log’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag_warnings</strong> – collect warnings (besides errors)?</td>
+</tr>
+</tbody>
+</table>
+<p>Opens these files and extracts error information from them (if found).</p>
+<dl class="method">
+<dt id="a99.gui.errorcollector.ErrorCollector.collect_errors">
+<code class="descname">collect_errors</code><span class="sig-paren">(</span><em>path_</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.errorcollector.ErrorCollector.collect_errors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.errorcollector.ErrorCollector.get_html">
+<code class="descname">get_html</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.errorcollector.ErrorCollector.get_html" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.errorcollector.ErrorCollector.get_plain_text">
+<code class="descname">get_plain_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.errorcollector.ErrorCollector.get_plain_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of strings</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="a99.gui.errorcollector.Occurrence">
+<em class="property">class </em><code class="descclassname">a99.gui.errorcollector.</code><code class="descname">Occurrence</code><span class="sig-paren">(</span><em>filename</em>, <em>type_</em>, <em>line</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.errorcollector.Occurrence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class that carries information about an error/warning, with HTML rendering ability</p>
+<dl class="attribute">
+<dt id="a99.gui.errorcollector.Occurrence.colors">
+<code class="descname">colors</code><em class="property"> = {'undefined': '#000000', 'warning': '#C98A00', 'error': '#AA0000', 'cannot open': '#AA0000'}</em><a class="headerlink" href="#a99.gui.errorcollector.Occurrence.colors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.errorcollector.Occurrence.get_html">
+<code class="descname">get_html</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.errorcollector.Occurrence.get_html" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.errorcollector.Occurrence.get_plain_text">
+<code class="descname">get_plain_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.errorcollector.Occurrence.get_plain_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.parameter">
+<span id="a99-gui-parameter-module"></span><h2>a99.gui.parameter module<a class="headerlink" href="#module-a99.gui.parameter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.parameter.Parameter">
+<em class="property">class </em><code class="descclassname">a99.gui.parameter.</code><code class="descname">Parameter</code><span class="sig-paren">(</span><em>spec=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.parameter.Parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Definition of a single parameter, with QWidget rendering facility</p>
+<dl class="method">
+<dt id="a99.gui.parameter.Parameter.FromSpec">
+<code class="descname">FromSpec</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.parameter.Parameter.FromSpec" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spec</strong> – (name, {…}), or Parameter object</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Dict keys:</dt>
+<dd><dl class="first docutils">
+<dt>“caption” – (optional) text for label in editor. Defaults to the</dt>
+<dd>keyword argument name</dd>
+</dl>
+<p>“toolTip” (optional)
+“type” – (optional, defaults to type(“value”) or int if “value” is</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>not specified. Accepts:</dt>
+<dd><ul class="first last simple">
+<li>int</li>
+<li>float</li>
+<li>str</li>
+<li>bool</li>
+<li>list</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="last docutils">
+<dt>“value” – (optional) defaults to 1 if numeric, False if bool,</dt>
+<dd>“” if str</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.parameter.Parameter.RenderWidget">
+<code class="descname">RenderWidget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.parameter.Parameter.RenderWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a QWidget subclass instance. Exact class depends on self.type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.parameter.Parameter.UpdateValueFromWidget">
+<code class="descname">UpdateValueFromWidget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.parameter.Parameter.UpdateValueFromWidget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="a99.gui.parameter.Parameters">
+<em class="property">class </em><code class="descclassname">a99.gui.parameter.</code><code class="descname">Parameters</code><span class="sig-paren">(</span><em>specs=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.parameter.Parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Collection of parameters (for GUI purposes only)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>--</strong><strong> [</strong> (<em>specs</em>) – </td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="a99.gui.parameter.Parameters.AddToLayout">
+<code class="descname">AddToLayout</code><span class="sig-paren">(</span><em>layout</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.parameter.Parameters.AddToLayout" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>-- a QFormLayout instance</strong> (<em>layout</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.parameter.Parameters.GetKwargs">
+<code class="descname">GetKwargs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.parameter.Parameters.GetKwargs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.parameter.Parameters.UpdateFromWidgets">
+<code class="descname">UpdateFromWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.parameter.Parameters.UpdateFromWidgets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.syntax">
+<span id="a99-gui-syntax-module"></span><h2>a99.gui.syntax module<a class="headerlink" href="#module-a99.gui.syntax" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://wiki.python.org/moin/PyQt/Python%20syntax%20highlighting">https://wiki.python.org/moin/PyQt/Python%20syntax%20highlighting</a></p>
+<dl class="class">
+<dt id="a99.gui.syntax.PythonHighlighter">
+<em class="property">class </em><code class="descclassname">a99.gui.syntax.</code><code class="descname">PythonHighlighter</code><span class="sig-paren">(</span><em>document</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.syntax.PythonHighlighter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtGui.QSyntaxHighlighter</span></code></p>
+<p>Syntax highlighter for the Python language.</p>
+<dl class="attribute">
+<dt id="a99.gui.syntax.PythonHighlighter.braces">
+<code class="descname">braces</code><em class="property"> = ['\\{', '\\}', '\\(', '\\)', '\\[', '\\]']</em><a class="headerlink" href="#a99.gui.syntax.PythonHighlighter.braces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.syntax.PythonHighlighter.highlightBlock">
+<code class="descname">highlightBlock</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.syntax.PythonHighlighter.highlightBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply syntax highlighting to the given block of text.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.syntax.PythonHighlighter.keywords">
+<code class="descname">keywords</code><em class="property"> = ['and', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'not', 'or', 'pass', 'print', 'raise', 'return', 'try', 'while', 'yield', 'None', 'True', 'False']</em><a class="headerlink" href="#a99.gui.syntax.PythonHighlighter.keywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.syntax.PythonHighlighter.match_multiline">
+<code class="descname">match_multiline</code><span class="sig-paren">(</span><em>text</em>, <em>delimiter</em>, <em>in_state</em>, <em>style</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.syntax.PythonHighlighter.match_multiline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do highlighting of multi-line strings. <code class="docutils literal"><span class="pre">delimiter</span></code> should be a
+<code class="docutils literal"><span class="pre">QRegExp</span></code> for triple-single-quotes or triple-double-quotes, and
+<code class="docutils literal"><span class="pre">in_state</span></code> should be a unique integer to represent the corresponding
+state changes when inside those strings. Returns True if we’re still
+inside a multi-line string when this function is finished.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="a99.gui.syntax.PythonHighlighter.operators">
+<code class="descname">operators</code><em class="property"> = ['=', '==', '!=', '&lt;', '&lt;=', '&gt;', '&gt;=', '\\+', '-', '\\*', '/', '//', '\\%', '\\*\\*', '\\+=', '-=', '\\*=', '/=', '\\%=', '\\^', '\\|', '\\&amp;', '\\~', '&gt;&gt;', '&lt;&lt;']</em><a class="headerlink" href="#a99.gui.syntax.PythonHighlighter.operators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.ui_XParametersEditor">
+<span id="a99-gui-ui-xparameterseditor-module"></span><h2>a99.gui.ui_XParametersEditor module<a class="headerlink" href="#module-a99.gui.ui_XParametersEditor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="a99.gui.ui_XParametersEditor.Ui_XParametersEditor">
+<em class="property">class </em><code class="descclassname">a99.gui.ui_XParametersEditor.</code><code class="descname">Ui_XParametersEditor</code><a class="headerlink" href="#a99.gui.ui_XParametersEditor.Ui_XParametersEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="a99.gui.ui_XParametersEditor.Ui_XParametersEditor.retranslateUi">
+<code class="descname">retranslateUi</code><span class="sig-paren">(</span><em>XParametersEditor</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.ui_XParametersEditor.Ui_XParametersEditor.retranslateUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.ui_XParametersEditor.Ui_XParametersEditor.setupUi">
+<code class="descname">setupUi</code><span class="sig-paren">(</span><em>XParametersEditor</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.ui_XParametersEditor.Ui_XParametersEditor.setupUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui.xmisc">
+<span id="a99-gui-xmisc-module"></span><h2>a99.gui.xmisc module<a class="headerlink" href="#module-a99.gui.xmisc" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="a99.gui.xmisc.keep_ref">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">keep_ref</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.keep_ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keeps a reference to Python object representing a C++ Qt object</p>
+<dl class="docutils">
+<dt><strong>Rationale</strong>: Qt windows may simply disappear when the Python object (e.g., QMainWindow())</dt>
+<dd>representing a Qt object runs out of scope (i.e., the program leaves the method
+that created the Python object). Python deletes the object and the C++ object
+may be deleted as well. Keeping these objects in a list prevents this
+from happening.</dd>
+</dl>
+<p><strong>Drawback</strong> will keep reference until the Python program finishes.</p>
+<p>Returns: obj</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.check_return_space">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">check_return_space</code><span class="sig-paren">(</span><em>event</em>, <em>callable_</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.check_return_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if event corresponds to Return/Space being pressed and calls <a href="#id1"><span class="problematic" id="id2">callable_</span></a> if so.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.show_error">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">show_error</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.show_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.enc_name_descr">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">enc_name_descr</code><span class="sig-paren">(</span><em>name</em>, <em>descr</em>, <em>color='#222222'</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.enc_name_descr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes html given name and description.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="a99.gui.xmisc.SignalProxy">
+<em class="property">class </em><code class="descclassname">a99.gui.xmisc.</code><code class="descname">SignalProxy</code><span class="sig-paren">(</span><em>signals</em>, <em>delay=0.3</em>, <em>rateLimit=0</em>, <em>slot=None</em>, <em>flag_connect=True</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.SignalProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtCore.QObject</span></code></p>
+<p>Object which collects rapid-fire signals and condenses them
+into a single signal or a rate-limited stream of signals.
+Used, for example, to prevent a SpinBox from generating multiple
+signals when the mouse wheel is rolled over it.</p>
+<p>Emits sigDelayed after input signals have stopped for a certain period of time.</p>
+<p>Note: <em>queued</em> connection is made to slot.</p>
+<p>Original author: Luke Campagnola – pyqtgraph package</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>-- a list of bound signals</strong><strong> or </strong><strong>pyqtSignal instance</strong> (<em>signals</em>) – </li>
+<li><strong>-- Time</strong> (<em>delay=0.3</em>) – </li>
+<li><strong>-- Optional function to connect sigDelayed to.</strong> (<em>slot</em>) – </li>
+<li><strong>--</strong> (<em>rateLimit=0</em>) – stream out at a steady rate while they are being received.</li>
+<li><strong>-- whether</strong><strong> or </strong><strong>not to start with the connections already</strong> (<em>flag_connect=True</em>) – made. If False, the signals and slots can be connected by calling
+connect_all()</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="a99.gui.xmisc.SignalProxy.add_signal">
+<code class="descname">add_signal</code><span class="sig-paren">(</span><em>signal</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.SignalProxy.add_signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds “input” signal to connected signals.
+Internally connects the signal to a control slot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.xmisc.SignalProxy.connect_all">
+<code class="descname">connect_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.SignalProxy.connect_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>[Re-]connects all signals and slots.</p>
+<p>If already in “connected” state, ignores the call.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.xmisc.SignalProxy.disconnect_all">
+<code class="descname">disconnect_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.SignalProxy.disconnect_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnects all signals and slots.</p>
+<p>If already in “disconnected” state, ignores the call.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.are_you_sure">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">are_you_sure</code><span class="sig-paren">(</span><em>flag_changed</em>, <em>evt</em>, <em>parent=None</em>, <em>title='File has been changed'</em>, <em>msg='Are you sure you want to exit?'</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.are_you_sure" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Are you sure you want to exit” question dialog.</p>
+<p>If flag_changed, shows question dialog. If answer is not yes, calls evt.ignore()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>flag_changed</strong> – </li>
+<li><strong>-- QCloseEvent instance</strong> (<em>evt</em>) – </li>
+<li><strong>-- parent form</strong><strong>, </strong><strong>used to centralize the question dialog at</strong> (<em>parent=None</em>) – </li>
+<li><strong>-- title for question dialog</strong> (<em>title</em>) – </li>
+<li><strong>-- text of question dialog</strong> (<em>msg</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns True or False. True means: “yes, I want to exit”</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.show_warning">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">show_warning</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.show_warning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.style_checkboxes">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">style_checkboxes</code><span class="sig-paren">(</span><em>widget</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.style_checkboxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over widget children to change checkboxes stylesheet.</p>
+<p>The default rendering of checkboxes does not allow to tell a focused one
+from an unfocused one.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="a99.gui.xmisc.VerticalLabel">
+<em class="property">class </em><code class="descclassname">a99.gui.xmisc.</code><code class="descname">VerticalLabel</code><a class="headerlink" href="#a99.gui.xmisc.VerticalLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PyQt5.QtWidgets.QLabel</span></code></p>
+<p>Label that draws itself vertically.</p>
+<dl class="docutils">
+<dt>This was created to be used at lateral title:</dt>
+<dd><ul class="first last simple">
+<li>It paints in bold</li>
+<li>No HTML support</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="a99.gui.xmisc.VerticalLabel.minimumSizeHint">
+<code class="descname">minimumSizeHint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.VerticalLabel.minimumSizeHint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.xmisc.VerticalLabel.paintEvent">
+<code class="descname">paintEvent</code><span class="sig-paren">(</span><em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.VerticalLabel.paintEvent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="a99.gui.xmisc.VerticalLabel.sizeHint">
+<code class="descname">sizeHint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.VerticalLabel.sizeHint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.show_message">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">show_message</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.show_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.get_matplotlib_layout">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">get_matplotlib_layout</code><span class="sig-paren">(</span><em>widget</em>, <em>flag_toolbar=True</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.get_matplotlib_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates figure, toolbar, layout, sets widget layout</p>
+<p>Returns figure, canvas, layout</p>
+<p>Reference: <a class="reference external" href="http://stackoverflow.com/questions/12459811">http://stackoverflow.com/questions/12459811</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.nerdify">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">nerdify</code><span class="sig-paren">(</span><em>window</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.nerdify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.place_center">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">place_center</code><span class="sig-paren">(</span><em>window</em>, <em>width=None</em>, <em>height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.place_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Places window in the center of the screen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.get_window_title">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">get_window_title</code><span class="sig-paren">(</span><em>prefix</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.get_window_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.style_widget_changed">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">style_widget_changed</code><span class="sig-paren">(</span><em>spinbox</em>, <em>flag_changed</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.style_widget_changed" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Paints background yellow)/(removes stylesheet)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.get_QApplication">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">get_QApplication</code><span class="sig-paren">(</span><em>args=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.get_QApplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the QApplication instance, creating it is does not yet exist.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.get_icon">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">get_icon</code><span class="sig-paren">(</span><em>keyword</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.get_icon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms a PNG file in a QIcon</p>
+<p>Looks for a file named &lt;keyword&gt;.png in the “icons” directory</p>
+<p>If file does not exist, returns None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.show_edit_form">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">show_edit_form</code><span class="sig-paren">(</span><em>obj</em>, <em>attrs=None</em>, <em>title=''</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.show_edit_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows parameters editor modal form.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>-- object to extract attribute values from</strong><strong>, or </strong><strong>a dict-like</strong> (<em>obj</em>) – attrs – list of attribute names</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.snap_left">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">snap_left</code><span class="sig-paren">(</span><em>window</em>, <em>width=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.snap_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snaps window to left of desktop.
+:param window – a QWidget:
+:param width=None – window width, in case you want to change it:
+:type width=None – window width, in case you want to change it: if not passed, not changed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.snap_right">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">snap_right</code><span class="sig-paren">(</span><em>window</em>, <em>width=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.snap_right" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snaps window to right of desktop.
+:param window – a QWidget:
+:param width=None – window width, in case you want to change it:
+:type width=None – window width, in case you want to change it: if not passed, not changed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.enc_name">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">enc_name</code><span class="sig-paren">(</span><em>name</em>, <em>color='#222222'</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.enc_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes html given name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.place_left_top">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">place_left_top</code><span class="sig-paren">(</span><em>window</em>, <em>width=None</em>, <em>height=None</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.place_left_top" title="Permalink to this definition">¶</a></dt>
+<dd><p>Places window in top left corner of screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>-- a QWidget</strong> (<em>window</em>) – </li>
+<li><strong>-- window width</strong><strong>, </strong><strong>in case you want to change it</strong> (<em>width=None</em>) – </li>
+<li><strong>-- window height</strong><strong>, </strong><strong>in case you want to change it</strong> (<em>height=None</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.reset_table_widget">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">reset_table_widget</code><span class="sig-paren">(</span><em>t</em>, <em>rowCount</em>, <em>colCount</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.reset_table_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears and resizes a table widget.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.table_info_to_parameters">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">table_info_to_parameters</code><span class="sig-paren">(</span><em>table_info</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.table_info_to_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a list of MyDBRow into a parameters.Parameters object</p>
+<p>This facilitates transfering data from SQLite table row to a XParameterEditor window</p>
+<p>See also: get_table_info()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.format_title0">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">format_title0</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.format_title0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formats string as first-level title (to use as QLabel text)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.format_title1">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">format_title1</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.format_title1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formats string as second-level title (to use as QLabel text)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.format_title2">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">format_title2</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.format_title2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formats string as third-level title (to use as QLabel text)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.style_widget_valid">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">style_widget_valid</code><span class="sig-paren">(</span><em>spinbox</em>, <em>flag_valid</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.style_widget_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Paints background pastel red)/(removes stylesheet)</p>
+<p>Reference: <a class="reference external" href="http://www.colorhexa.com/ff6961">http://www.colorhexa.com/ff6961</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.set_margin">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">set_margin</code><span class="sig-paren">(</span><em>obj</em>, <em>margin</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.set_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>…because Qt5 no longer has xxxx.setMargin() method</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.get_frame">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">get_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.get_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a QFrame formatted in a particular way</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="a99.gui.xmisc.set_checkbox_value">
+<code class="descclassname">a99.gui.xmisc.</code><code class="descname">set_checkbox_value</code><span class="sig-paren">(</span><em>w</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#a99.gui.xmisc.set_checkbox_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a checkbox’s “checked” property + signal blocking + value tolerance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>w</strong> – QCheckBox instance</li>
+<li><strong>value</strong> – something that can be converted to a bool</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-a99.gui">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-a99.gui" title="Permalink to this headline">¶</a></h2>
+<p>API to facilitate building a GUI</p>
+<blockquote>
+<div><ul class="simple">
+<li>Reusable and subclassable widgets and windows</li>
+<li>miscellanea of GUI-related features in <cite>xmisc.py</cite></li>
+<li>Python syntax highlighter</li>
+<li></li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>File naming conventions:</dt>
+<dd>a_X*.py : classes descending from QMainWindow or QMainDialog
+a_W*.py : widgets</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015-2017, JT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

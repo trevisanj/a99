@@ -1,0 +1,26 @@
+A99 Installation
+=================
+
+Python 3 version required: Python 3.4.6+, Python 3.5.3+, or Python 3.6+ (https://packaging.python.org/guides/migrating-to-pypi-org/)
+
+
+Dependencies:
+
+- numpy
+
+
+Optional packages (features will be missing if not installed):
+
+- astropy
+- pyqt5
+
+
+
+Method 1: Using Anaconda without virtual environment
+----------------------------------------------------
+
+::
+
+   pip install ????????????? numpy scipy matplotlib astropy configobj bs4 robobrowser requests fortranformat tabulate rows pyqt5 a99 f311
+
+
