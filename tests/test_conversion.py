@@ -1,8 +1,6 @@
 """Testing conversion routines"""
 
 
-import numpy as np
-import re
 import a99
 
 

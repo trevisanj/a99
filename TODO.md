@@ -1,3 +1,0 @@
-- Write proper installation tutorial
-- Sphinx doc
-- Does not work remotely with ssh -X: "QXcbConnection: Could not connect to display", but the solution has to be to make Qt optional

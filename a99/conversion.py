@@ -7,7 +7,7 @@ __all__ = [
 "greek_to_unicode", "make_code_readable", "int_to_superscript"]
 
 
-import numpy as np
+import math
 import re
 
 
@@ -98,9 +98,9 @@ def seconds2str(seconds):
 
     if seconds < 0:
         return "{0:.3g}s".format(seconds)
-    elif np.isnan(seconds):
+    elif math.isnan(seconds):
         return "NaN"
-    elif np.isinf(seconds):
+    elif math.isinf(seconds):
         return "Inf"
 
     m, s = divmod(seconds, 60)

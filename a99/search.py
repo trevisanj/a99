@@ -16,6 +16,13 @@ def index_nearest(array, value):
     """
     Finds index of nearest value in array.
 
+    Args:
+        array: numpy array
+        value:
+
+    Returns:
+        int
+
     http://stackoverflow.com/questions/2566412/find-nearest-value-in-numpy-array
     """
     idx = (np.abs(array-value)).argmin()

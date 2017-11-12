@@ -1,0 +1,133 @@
+a99 package
+===========
+
+Subpackages
+-----------
+
+.. toctree::
+
+    a99.gui
+
+Submodules
+----------
+
+a99.astropyaux module
+---------------------
+
+.. automodule:: a99.astropyaux
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.config module
+-----------------
+
+.. automodule:: a99.config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.conversion module
+---------------------
+
+.. automodule:: a99.conversion
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.datetimefunc module
+-----------------------
+
+.. automodule:: a99.datetimefunc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.debugging module
+--------------------
+
+.. automodule:: a99.debugging
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.fileio module
+-----------------
+
+.. automodule:: a99.fileio
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.introspection module
+------------------------
+
+.. automodule:: a99.introspection
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.litedb module
+-----------------
+
+.. automodule:: a99.litedb
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.loggingaux module
+---------------------
+
+.. automodule:: a99.loggingaux
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.matplotlibaux module
+------------------------
+
+.. automodule:: a99.matplotlibaux
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.misc module
+---------------
+
+.. automodule:: a99.misc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.parts module
+----------------
+
+.. automodule:: a99.parts
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.search module
+-----------------
+
+.. automodule:: a99.search
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+a99.textinterface module
+------------------------
+
+.. automodule:: a99.textinterface
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: a99
+    :members:
+    :undoc-members:
+    :show-inheritance:
