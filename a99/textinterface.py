@@ -1,7 +1,8 @@
 import textwrap
 import sys
 
-__all__ = ["format_h1", "format_h2", "fmt_error", "print_error", "menu", "format_progress", "markdown_table",
+__all__ = ["format_h1", "format_h2", "format_h3", "format_h4",
+           "fmt_error", "print_error", "menu", "format_progress", "markdown_table",
            "format_exe_info", "format_box", "yesno", "rest_table", "expand_multirow_data"]
 
 
@@ -51,24 +52,20 @@ def format_h1(s, format="text", indents=0):
     ## Header 1
     """
 
+    _CHAR = "="
     if format.startswith("text"):
-        return format_underline(s, "=", indents)
+        return format_underline(s, _CHAR, indents)
     elif format.startswith("markdown"):
         return ["# {}".format(s)]
     elif format.startswith("rest"):
-        return format_underline(s, "=", 0)
+        return format_underline(s, _CHAR, 0)
 
 
 def format_h2(s, format="text", indents=0):
     """
     Encloses string in format text
 
-    Args:
-        s: string
-        format: string starting with "text" or "markdown"
-        intents: number of leading intenting spaces
-
-    Returns: list
+    Args, Returns: see format_h1()
 
     >>> print("\\n".join(format_h2("Header 2", indents=2)))
       Header 2
@@ -78,13 +75,45 @@ def format_h2(s, format="text", indents=0):
     ## Header 2
     """
 
+    _CHAR = "-"
     if format.startswith("text"):
-        return format_underline(s, "-", indents)
+        return format_underline(s, _CHAR, indents)
     elif format.startswith("markdown"):
         return ["## {}".format(s)]
     elif format.startswith("rest"):
-        return format_underline(s, "-", 0)
+        return format_underline(s, _CHAR, 0)
 
+
+def format_h3(s, format="text", indents=0):
+    """
+    Encloses string in format text
+
+    Args, Returns: see format_h1()
+    """
+
+    _CHAR = "~"
+    if format.startswith("text"):
+        return format_underline(s, _CHAR, indents)
+    elif format.startswith("markdown"):
+        return ["### {}".format(s)]
+    elif format.startswith("rest"):
+        return format_underline(s, _CHAR, 0)
+
+
+def format_h4(s, format="text", indents=0):
+    """
+    Encloses string in format text
+
+    Args, Returns: see format_h1()
+    """
+
+    _CHAR = "^"
+    if format.startswith("text"):
+        return format_underline(s, _CHAR, indents)
+    elif format.startswith("markdown"):
+        return ["#### {}".format(s)]
+    elif format.startswith("rest"):
+        return format_underline(s, _CHAR, 0)
 
 
 def fmt_error(s):
@@ -288,7 +317,7 @@ def format_exe_info(exeinfo, format="text", indlevel=0):
     sisi_none = [si for si in exeinfo if si.flag_gui is None]
 
     def get_title(x):
-        return format_h2(x, format, indlevel*NIND) + [""]
+        return format_h4(x, format, indlevel*NIND) + [""]
 
     ret = []
     if len(sisi_gra) > 0:
@@ -397,7 +426,9 @@ def rest_table(data, headers):
     ret = [hl0, "| "+" | ".join(frmtd)+" |", hl1]
 
     i0 = 0
-    for row_height in row_heights:
+    for i, row_height in enumerate(row_heights):
+        if i > 0:
+            ret.append(hl0)
         for incr in range(row_height):
             frmtd = ["{0:{1}}".format(x, width) for x, width in zip(new_data[i0+incr], col_widths)]
             ret.append("| "+" | ".join(frmtd)+" |")
