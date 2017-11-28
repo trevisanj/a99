@@ -238,10 +238,10 @@ _text_characters = (
         b''.join(_int2byte(i) for i in range(32, 127)) +
         b'\n\r\t\f\b')
 
-def is_text_file(filepath, blocksize=2**13):
+def is_text_file(filepath, blocksize=2**14):
     """ Uses heuristics to guess whether the given file is text or binary,
         by reading a single block of bytes from the file.
-        If more than 30% of the chars in the block are non-text, or there
+        If more than some abound of the chars in the block are non-text, or there
         are NUL ('\x00') bytes in the block, assume this is a binary file.
     """
     with open(filepath, "rb") as fileobj:
