@@ -3,7 +3,7 @@
 
 import os
 import glob
-import imp
+# import imp
 import importlib
 import inspect
 import a99
@@ -76,6 +76,7 @@ def get_exe_info(dir_, flag_protected=False):
         _, filename = os.path.split(f)
         flag_error = False
         flag_gui = None
+        descr = "(no doc)"
         try:
             # Checks if it is a graphical application
 
@@ -83,15 +84,20 @@ def get_exe_info(dir_, flag_protected=False):
                 flag_gui = "QApplication" in h.read()
 
             try:
-                script_ = imp.load_source('script_', f)  # module object
+                script_ = None
+                script_ = import_module(f)  # imp.load_source('script_', f)  # module object
             except SystemExit:
                 descr = "? (called sys.exit())"
             else:
-                descr = script_.__doc__.strip()
-                descr = descr.split("\n")[0]  # first line of docstring
+                if script_.__doc__ is not None:
+                    descr = script_.__doc__.strip().split("\n")[0]  # first line of docstring
+
         except Exception as e:
             flag_error = True
             descr = "*{0!s}*: {1!s}".format(e.__class__.__name__, str(e))
+
+        if len(descr) == 0:
+            descr = "(no doc)"
 
         ret.append(ExeInfo(filename, descr, flag_error, flag_gui))
 
