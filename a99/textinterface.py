@@ -18,8 +18,8 @@ def format_underline(s, char="=", indents=0):
 
     Args:
         s: string
-        intents: number of leading intenting spaces
-        format: string starting with "text" or "markdown"
+        char:
+        indents: number of leading intenting spaces
 
     Returns: list
 
@@ -39,8 +39,8 @@ def format_h1(s, format="text", indents=0):
 
     Args:
         s: string
-        intents: number of leading intenting spaces
         format: string starting with "text", "markdown", or "rest"
+        indents: number of leading intenting spaces
 
     Returns: list
 
