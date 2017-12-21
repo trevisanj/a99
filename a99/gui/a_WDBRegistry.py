@@ -95,7 +95,7 @@ class WDBRegistry(WBase):
 
         # Adds actions to toolbar
 
-        tb = QToolBar()
+        tb = self.toolbar = QToolBar()
         tb.setOrientation(Qt.Vertical)
         l.addWidget(tb)
         tb.addAction(self.action_insert)

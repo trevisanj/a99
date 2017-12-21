@@ -134,12 +134,14 @@ def reset_table_widget(t, rowCount, colCount):
     t.setColumnCount(colCount)
 
 
-def show_edit_form(obj, attrs=None, title=""):
+def show_edit_form(obj, attrs=None, title="", toolTips=None):
     """Shows parameters editor modal form.
 
     Arguments:
-       obj -- object to extract attribute values from, or a dict-like
-      attrs -- list of attribute names
+       obj: object to extract attribute values from, or a dict-like
+       attrs: list of attribute names
+       title:
+       toolTips:
     """
 
     if attrs is None:
@@ -149,7 +151,7 @@ def show_edit_form(obj, attrs=None, title=""):
             raise RuntimeError("attrs is None and cannot determine it from obj")
 
     specs = []
-    for name in attrs:
+    for i, name in enumerate(attrs):
         # Tries as attribute, then as key
         try:
             value = obj.__getattribute__(name)
@@ -158,7 +160,14 @@ def show_edit_form(obj, attrs=None, title=""):
 
         if value is None:
             value = ""  # None becomes str
-        specs.append((name, {"value": value}))
+
+        dict_ = {"value": value}
+
+        if toolTips is not None:
+            dict_["toolTip"] = toolTips[i]
+            dict_["tooltip"] = toolTips[i]
+
+        specs.append((name, dict_))
     form = XParametersEditor(specs=specs, title=title)
     r = form.exec_()
     return r, form

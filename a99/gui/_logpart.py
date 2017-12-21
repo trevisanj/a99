@@ -51,7 +51,7 @@ class _LogPart(object):
             te = self.textEdit_log
             te.append("{0!s} -- {1!s}".format(a99.now_str(), x))
         if flag_also_show:
-            a99.show_error(x)
+            a99.show_message(x)
 
     def status(self, x):
         """Sets text of label_last_log"""

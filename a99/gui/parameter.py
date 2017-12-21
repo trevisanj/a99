@@ -136,6 +136,10 @@ class Parameter(object):
         else:  # str, list left
             ret = QLineEdit()
             ret.setText(str(self.value))
+
+        if self.toolTip is not None:
+            ret.setToolTip(self.toolTip)
+
         self.widget = ret
         return ret
 

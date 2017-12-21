@@ -85,7 +85,7 @@ class WConfigEditor(WEditor):
 
     def _after_update_gui(self):
         """
-        Inherit this carry out further GUI or internal state update sensible to self.fobj
+        Inherit this carry out further GUI or internal state update sensible to self.f
 
         After self.f is "loaded" into the GUI by self.__do_update_gui(), there may be extra work
         left, such as extra calculations that take more than one config option into account.
@@ -129,9 +129,7 @@ class WConfigEditor(WEditor):
             self._before_update_fobj()
 
             for item in self._map:
-                fieldname = item.fieldname
-                value = item.get_value()
-                self._f.obj[fieldname] = value
+                self._f.obj[item.fieldname] = item.get_value()
 
             self._after_update_fobj()
 

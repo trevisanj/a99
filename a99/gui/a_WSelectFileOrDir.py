@@ -90,6 +90,10 @@ class _WSelectFileOrDir(WBase):
         raise NotImplementedError()
 
     def _set_text_from_file_dialog(self, text):
+        """Sets text making it a **relative path**"""
+
+        text = os.path.relpath(text, ".")
+
         self.edit.setText(text)
         self.dialog_path = text
         self._act_on_change()
