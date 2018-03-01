@@ -29,7 +29,9 @@ setup(
     author='Julio Trevisan',
     author_email='juliotrevisan@gmail.com',
     url='https://github.com/trevisanj/a99',
-    keywords= ['astronomy', 'pyqt', 'pyqt5', 'debugging', 'introspection', 'file', 'search', 'conversion', 'datetime', 'config', 'litedb', 'matplotlib', 'text'],
+    keywords= ['astronomy', 'pyqt', 'pyqt5', 'debugging', 'introspection', 'file', 'search',
+               'conversion', 'datetime', 'config', 'litedb', 'matplotlib', 'text', 'cryptography',
+               ],
     install_requires=[],
     scripts=scripts
 )
