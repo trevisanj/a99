@@ -83,10 +83,13 @@ from .datetimefunc import *
 try:
     from .astropyaux import *
 except ImportError as e:
-    logging.warning("Error importing astropy: '{}', "
+    logging.warning("Error importing astropyaux: '{}', "
                     "astropy-related resources will not available".format(str_exc(e)))
-
-from .cryptography import *
+try:
+    from .cryptography import *
+except ImportError as e:
+    logging.warning("Error importing cryptography: '{}', "
+                    "cryptography-related resources will not available".format(str_exc(e)))
 
 from . import gui
 
