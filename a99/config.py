@@ -38,7 +38,7 @@ class AAConfigObj(ConfigObj):
         return obj, path_
 
     def get_item(self, path_, default):
-        """Returns item or default
+        """Return item or default. In the latter, change file to have default.
 
         Arguments:
             path_ -- path to item in section/subsection structure. May be either:
@@ -58,6 +58,7 @@ class AAConfigObj(ConfigObj):
         key = path_[-1]
 
         if key not in section:
+            self.set_item(path_, default)
             return default
 
         xvalue = section[key]

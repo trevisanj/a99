@@ -3,7 +3,8 @@ import sys
 
 __all__ = ["format_h1", "format_h2", "format_h3", "format_h4",
            "fmt_error", "print_error", "menu", "format_progress", "markdown_table",
-           "format_exe_info", "format_box", "yesno", "rest_table", "expand_multirow_data"]
+           "format_exe_info", "format_box", "yesno", "rest_table", "expand_multirow_data",
+           "question"]
 
 
 NIND = 2  # Number of spaces per indentation level
@@ -124,6 +125,44 @@ def fmt_error(s):
 def print_error(s):
     """Prints string as error message."""
     print((fmt_error(s)))
+
+
+def question(question, options, default=None):
+    """Ask a question with case-insensitive options of answers
+
+    Args:
+        question: string **without** the question mark and without the options.
+            Example: 'Commit changes'
+        options_: string or sequence of strings. If string, options will be single-lettered.
+            Examples: 'YNC', ['yes', 'no', 'cancel']. options are case-insensitive
+        default: default option. If passed, default option will be shown in uppercase.
+
+    Answers are case-insensitive, but options will be shown in lowercase, except for the default
+    option.
+
+    Returns:
+        str: chosen option. Although the answer is case-insensitive, the result will be as informed
+             in the 'options' argument.
+    """
+
+    # Make sure options is a list
+    options_ = [x for x in options]
+
+    if default is not None and default not in options_:
+        raise ValueError("Default option '{}' is not in options {}.".format(default, options))
+
+    oto = "/".join([x.upper() if x == default else x.lower() for x in options_])  # to show
+    ocomp = [x.lower() for x in options_]  # to be used in comparison
+
+    while True:
+        ans = input("{} ({})? ".format(question, oto)).lower()
+        if ans == "" and default is not None:
+            ret = default
+            break
+        elif ans in ocomp:
+            ret = options_[ocomp.index(ans)]
+            break
+    return ret
 
 
 def yesno(question, default=None):

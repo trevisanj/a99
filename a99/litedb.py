@@ -31,11 +31,12 @@ def conn_is_open(conn):
         # print(e)
         return False
 
+
 def get_table_names(conn):
     # http://stackoverflow.com/questions/305378/list-of-tables-db-schema-dump-etc-using-the-python-sqlite3-api
 
     r = conn.execute("select name from sqlite_master where type = 'table'")
-    names = [row.name for row in r]
+    names = [row["name"] for row in r]
     return names
 
 
@@ -43,7 +44,7 @@ def cursor_to_data_header(cursor):
     """Fetches all rows from query ("cursor") and returns a pair (data, header)
 
     Returns: (data, header), where
-        - data is a [num_rows]x[num_cols] list of lists;
+        - data is a [num_rows]x[num_cols] sequence of sequences;
         - header is a [num_cols] list containing the field names
     """
     n = 0
@@ -66,7 +67,7 @@ def cursor_to_rows(cursor):
 
 class MyDBRow(OrderedDict):
     """
-    Dict subclass that allows attribute-like access of values using keys
+    Dict subclass that also allows attribute-like access
     """
     def __getattribute__(self, name):
         """
@@ -125,4 +126,3 @@ def _dict_factory(cursor, row):
     for idx, col in enumerate(cursor.description):
         d[col[0]] = row[idx]
     return d
-

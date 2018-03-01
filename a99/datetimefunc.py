@@ -68,18 +68,28 @@ def to_datetime(arg):
     """Tries to convert any type of argument to datetime
 
     Args:
-        arg: datetime, date, or str. If "?", will be converted to 1970-1-1
+        arg: datetime, date, or str. If "?", will be converted to 1970-1-1.
+             if 0 or "now", will be converted to datetime.datetime.now()
     """
 
-    if isinstance(arg, str):
-        if arg == "?":
+
+    if isinstance(arg, datetime.datetime):
+        return arg
+    elif arg == 0:
+        return datetime.datetime.now()
+    elif isinstance(arg, str):
+        if arg == "now":
+            arg = datetime.datetime.now()
+        elif arg == "?":
             arg = datetime.datetime(1970, 1, 1)
         else:
             arg = str2dt(arg)
     elif isinstance(arg, datetime.date):
         arg = date2datetime(arg)
+    elif isinstance(arg, (int, float)):
+        # Suppose it is a timestamp
+        arg = ts2dt(arg)
     else:
-        assert isinstance(arg, datetime.datetime), "Wrong type for argument 'whenthis': {}".format(
-            type(arg))
+        raise TypeError("Wrong type for argument 'arg': {}".format(arg.__class__.__name__))
 
     return arg

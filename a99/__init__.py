@@ -86,17 +86,8 @@ except ImportError as e:
     logging.warning("Error importing astropy: '{}', "
                     "astropy-related resources will not available".format(str_exc(e)))
 
-# from . import conversion
-# from . import debugging
-# from . import fileio
-# from . import introspection
-# from . import loggingaux
-# from . import matplotlibaux
-# from . import misc
-# from . import parts
-# from . import search
-# from . import textinterface
-# from . import config
+from .cryptography import *
+
 from . import gui
 
 # # Finally, gets rid of unwanted symbols in the workspace

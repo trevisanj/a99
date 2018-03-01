@@ -35,7 +35,16 @@ def bool2str(x):
 
 
 def make_code_readable(s):
-    """Adds newlines at strategic places"""
+    """Add newlines at strategic places to make a piece of code readable.
+
+    Args:
+        s: str, piece of code. If not str, will attempt to convert to str.
+
+    Returns:
+        str
+    """
+
+    s = s if isinstance(s, str) else str(s)
 
     MAP = {",": ",\n", "{": "{\n ", "}": "\n}"}
 
