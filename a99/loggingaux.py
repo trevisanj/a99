@@ -21,13 +21,14 @@ _fmtr = logging.Formatter('[%(levelname)-8s] %(message)s')
 def get_python_logger():
     """Returns logger to receive Python messages (as opposed to Fortran).
 
-    Note: we don't want this to be called at any module imports, in order to give the API user a
-          chance to set `a99.flag_log_file` and `a99.flag_log_console`
+    At first call, _python_logger is created. At subsequent calls, _python_logger is returned. 
+    Therefore, if you want to change `a99.flag_log_file` or `a99.flag_log_console`, do so 
+    before calling get_python_logger(), otherwise these changes will be ineffective.
     """
     global _python_logger
     if _python_logger is None:
-        fn = "python.log"
-        l = logging.Logger("python", level=a99.logging_level)
+        fn = "a99.log"
+        l = logging.Logger("a99", level=a99.logging_level)
         if a99.flag_log_file:
             add_file_handler(l, fn)
         if a99.flag_log_console:
@@ -35,7 +36,7 @@ def get_python_logger():
             ch.setFormatter(_fmtr)
             l.addHandler(ch)
         _python_logger = l
-        for line in a99.format_box("Session started @ {}".format(a99.now_str())):
+        for line in a99.format_box("a99 logging session started @ {}".format(a99.now_str())):
             l.info(line)
         if a99.flag_log_file:
             l.info("$ Logging to console $")
@@ -75,7 +76,7 @@ class LogTwo(object):
 class SmartFormatter(RawDescriptionHelpFormatter):
     """
     Help formatter that will show default option values and also respect
-    newlines in description. Neither are done in default help formatter.
+    newlines in description. Neither are done by the default help formatter.
     """
 
     def _get_help_string(self, action):

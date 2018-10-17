@@ -69,7 +69,10 @@ class AAConfigObj(ConfigObj):
             value = True if xvalue == "True" else False if xvalue == "False" else eval(xvalue)
         elif type_ in (int, float):
             value = type_(xvalue)
+        elif default is None:
+            value = None if xvalue == "None" else eval(xvalue)
         else:
+
             raise TypeError("Type not supported: {}".format(type_.__name__))
         return value
 

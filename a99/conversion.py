@@ -35,7 +35,7 @@ def bool2str(x):
 
 
 def make_code_readable(s):
-    """Add newlines at strategic places to make a piece of code readable.
+    """Add newlines at strategic places in code string for printing.
 
     Args:
         s: str, piece of code. If not str, will attempt to convert to str.
