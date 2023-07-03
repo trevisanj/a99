@@ -4,7 +4,7 @@
 __all__ = [
 "str2bool", "bool2str", "chunk_string", "ordinal_suffix", "seconds2str", "make_fits_keys_dict",
 "valid_fits_key", "eval_fieldnames", "expr_to_fieldname", "module_to_dict", "unicode_to_greek",
-"greek_to_unicode", "make_code_readable", "int_to_superscript"]
+"greek_to_unicode", "make_code_readable", "int_to_superscript", "greek_to_unicode_all"]
 
 
 import math
@@ -291,7 +291,12 @@ def greek_to_unicode(s):
 
     return _GREEK_TO_UNICODE[s]
 
-
+def greek_to_unicode_all(s):
+    """Converts everything greek in string to corresponding unicode."""
+    ret = s
+    for to_rep, to_find in _UNICODE_GREEK:
+        ret = ret.replace(to_find, to_rep)
+    return ret
 
 # superscript numbers
 _INT_TO_SUPERSCRIPT = {

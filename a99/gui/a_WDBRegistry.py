@@ -32,9 +32,10 @@ class WDBRegistry(WBase):
     def row(self):
         """Returns current data row: MyDBRow object, or None"""
         ret = None
-        i = self.tableWidget.currentRow()
-        if i >= 0:
-            ret = self._data[i]
+        if self.tableWidget.rowCount() > 0:
+            i = self.tableWidget.currentRow()
+            if i >= 0:
+                ret = self._data[i]
         return ret
 
     @property
