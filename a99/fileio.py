@@ -17,15 +17,20 @@ __all__ = [
 
 # # Filename or pathname-related string manipulations
 
-def slugify(string):
+def slugify(string, flag_crunch=False):
     """
     Removes non-alpha characters, and converts spaces to hyphens. Useful for making file names.
+    
+    Args:
+        string: string to be acted upon
+        flag_crunch: replaces sequences of "-" with a single "-", i.e., "--" --> "-"; "---" --> "-" etc. 
 
 
     Source: http://stackoverflow.com/questions/5574042/string-slugification-in-python
     """
     string = re.sub('[^\w .-]', '', string)
     string = string.replace(" ", "-")
+    string = re.sub('-+', '-', string)
     return string
 
 
