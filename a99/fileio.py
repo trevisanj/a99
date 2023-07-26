@@ -7,6 +7,11 @@ import sys
 import a99
 import logging
 
+try:
+    Callable = collections.Callable
+except AttributeError:
+    Callable = collections.abc.Callable
+
 
 __all__ = [
     "rename_to_temp", "is_text_file", "multirow_str_vector", "add_bits_to_path", "crunch_dir",
@@ -215,7 +220,7 @@ def create_symlink(source, link_name):
     http://stackoverflow.com/questions/6260149/os-symlink-support-in-windows
     """
     os_symlink = getattr(os, "symlink", None)
-    if isinstance(os_symlink, collections.Callable):
+    if isinstance(os_symlink, Callable):
         os_symlink(source, link_name)
     else:
         import ctypes

@@ -211,7 +211,7 @@ def place_center(window, width=None, height=None):
 
     x = (screenGeometry.width() - w) / 2
     y = (screenGeometry.height() - h) / 2
-    window.move(x, y)
+    window.move(int(x), int(y))
 
 
 def snap_left(window, width=None):
