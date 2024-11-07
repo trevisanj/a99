@@ -353,6 +353,9 @@ class _ThreadsafeTimer(QObject):
 
 
     def start(self, timeout):
+
+        timeout = int(timeout)
+
         isGuiThread = QThread.currentThread() == QCoreApplication.instance().thread()
         if isGuiThread:
             #print "start timer", self, "from xgear thread"
